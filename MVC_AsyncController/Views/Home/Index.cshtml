@@ -1,0 +1,58 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+@section Scripts{
+	<script>
+	    $(document).ready(function () {
+
+			$.ajax({
+	            type: "POST",
+	            url: '@Url.Action("ParallelIOBoundByPostAsync")',
+	            data: {
+	                num: 111
+	            },
+	            success: function (rezult) {
+	                $('#rezult-place-c').text(rezult);
+	            }
+			});
+
+	        $.ajax({
+	            type: "GET",
+	            url: '@Url.Action("ParallelIOBoundByGet")',
+	            data: {
+	                num: 111
+	            },
+	            success: function (rezult) {
+	                $('#rezult-place-a').text(rezult);
+	            }
+	        });
+
+	        $.ajax({
+	            type: "POST",
+	            url: '@Url.Action("ParallelIOBoundByPost")',
+	            data: {
+	                num: 111
+	            },
+	            success: function (rezult) {
+	                $('#rezult-place-b').text(rezult);
+	            }
+			});
+
+	    });
+	</script>
+}
+
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<p>
+	<div id="rezult-place-a"></div>
+</p>
+<p>
+	<div id="rezult-place-b"></div>
+</p>
+<p>
+	<div id="rezult-place-c"></div>
+</p>

@@ -1,0 +1,28 @@
+﻿@model EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Part Async";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<div style="border: 1px solid black; margin: 5px; padding: 10px">
+	<strong>Employee Details (parent view)</strong>
+
+	<p>Firstname: @Model.Firstname</p>
+	<p>Surname: @Model.Surname</p>
+
+	@*@Html.Partial("_Address.cshtml", Model.Address)*@
+
+	<div id="partial-address"></div>
+
+</div>
+
+@section Scripts{
+	<script>
+		$(document).ready(function () {
+			$("#partial-address").load("/PartAsync/PartialAddress");
+		});
+	</script>
+}

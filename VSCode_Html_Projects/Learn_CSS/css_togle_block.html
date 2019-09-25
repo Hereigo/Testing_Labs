@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #toggleMe {
+            display: none;
+        }
+
+        #toggleControl:checked~#toggleMe {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="toggleControl" style="cursor: pointer;">Click Me</label>
+
+    <input type="checkbox" id="toggleControl" style="display: none;">
+
+    <div id="toggleMe" style="border: 1px solid black; margin: 10px; padding: 10px;">
+        Look mom, there is no JavaScript here!
+    </div>
+</body>
+
+</html>

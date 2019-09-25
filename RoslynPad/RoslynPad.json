@@ -1,0 +1,17 @@
+{
+  "SendErrors": true,
+  "EnableBraceCompletion": true,
+  "LatestVersion": "14.1",
+  "WindowBounds": "408,172,1152,756",
+  "DockLayout": "<LayoutRoot xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n  <RootPanel Orientation=\"Horizontal\">\r\n    <LayoutAnchorablePane Id=\"f5a7937a-374c-4bdc-b150-224df6fb48d0\" Name=\"Documents\" DockWidth=\"226\">\r\n      <LayoutAnchorable CanHide=\"False\" AutoHideWidth=\"200\" AutoHideMinWidth=\"100\" AutoHideMinHeight=\"100\" Title=\"Documents\" IsSelected=\"True\" ContentId=\"DocumentTree\" CanClose=\"False\" CanFloat=\"False\" LastActivationTimeStamp=\"05/08/2019 11:14:57\" />\r\n    </LayoutAnchorablePane>\r\n    <LayoutDocumentPane>\r\n      <LayoutDocument IsSelected=\"True\" IsLastFocusedDocument=\"True\" LastActivationTimeStamp=\"05/08/2019 11:16:23\" />\r\n    </LayoutDocumentPane>\r\n  </RootPanel>\r\n  <TopSide />\r\n  <RightSide />\r\n  <LeftSide />\r\n  <BottomSide />\r\n  <Hidden />\r\n</LayoutRoot>",
+  "WindowState": "Maximized",
+  "EditorFontSize": 14.0,
+  "DocumentPath": null,
+  "SearchFileContents": false,
+  "SearchUsingRegex": false,
+  "OptimizeCompilation": false,
+  "LiveModeDelayMs": 2000,
+  "SearchWhileTyping": false,
+  "DefaultPlatformName": "",
+  "HasErrors": false
+}

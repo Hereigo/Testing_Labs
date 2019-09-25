@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h3>Server Side Multi Column Filtering And Ordering for JQ.DataTables.</h3>
+</div>
+
+@Html.AntiForgeryToken()
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table id="my-data-table" class="table">
+                <thead class="text-center">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<p>
+    <hr />
+    <hr />
+</p>
+
+<div class="text-center">
+    <h3>Client Side Proccessing of JQ.DataTables.</h3>
+</div>
+
+<h3>Table from Json :</h3>
+<table class="table" id="json_data_table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>IsActive</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>

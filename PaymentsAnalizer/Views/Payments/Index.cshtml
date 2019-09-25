@@ -1,0 +1,96 @@
+﻿@model IEnumerable<PaymentsAnalizer.Models.Payment>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<style>
+	.table tbody tr {
+		cursor: pointer;
+	}
+
+	.table thead {
+		background-color: aliceblue;
+	}
+
+	.table tbody tr:hover {
+		background-color: lightcyan;
+	}
+
+	.table tbody tr td {
+		padding: 5px 10px;
+	}
+</style>
+
+<p style="margin:10px auto">
+	<input type="button" value="Create New" onclick="location.href='@Url.Action("Create", "Payments" )'" class="btn btn-default" />
+</p>
+
+<div class="table-responsive">
+
+	<table id="my_datatable_basic" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<th>
+					id
+				</th>
+				<th>
+					payDate
+				</th>
+				<th>
+					amount
+				</th>
+				<th>
+					description
+				</th>
+				<th>
+					catogoryId
+				</th>
+				<th>
+					category
+				</th>
+			</tr>
+		</thead>
+		@*<tbody>
+				@foreach (var item in Model)
+				{
+					<tr onclick="location.href='@(Url.Action("Edit", "Payments", new { id = item.ID }))'">
+						<td>
+							@Html.DisplayFor(modelItem => item.PayDate)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Amount)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Description)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Category.Name)
+						</td>
+					</tr>
+				}
+			</tbody>*@
+		<tfoot>
+			<tr>
+				<th>
+					id
+				</th>
+				<th>
+					payDate
+				</th>
+				<th>
+					amount
+				</th>
+				<th>
+					description
+				</th>
+				<th>
+					catogoryId
+				</th>
+				<th>
+					category
+				</th>
+			</tr>
+		</tfoot>
+	</table>
+</div>

@@ -1,0 +1,14 @@
+
+-Confirm - (Boolean) - Ask User to change system settings.
+
+-ErrorAction - (Enum) - Continue(default), Stop, SilentlyContinue, Inquire.
+
+-ErrorVariable - (String) - Store error info (additional to $error var).
+
+-OutBuffer - (Int32) - Define objects count in buffer befor next CmdLet.
+
+-OutVariable - (String) - Store output data.
+
+-Verbose - (Boolean) - Detailed info.
+
+-WhatIf - (Boolean) - Demo result with no real action.
