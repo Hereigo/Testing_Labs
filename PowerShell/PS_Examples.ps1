@@ -17,3 +17,14 @@ Get-Service | Where-Object {$_.Name -eq "LSM"} | Format-List *
 # StartType           : Automatic
 # Site                : 
 # Container           : 
+
+
+# OUTPUT SOURCES :
+Get-Command out-* | Format-Table Name
+# Out-Default
+# Out-File
+# Out-Host
+# Out-Null  -  Do not output/ do not show output.
+# Out-Printer
+# Out-String
+Get-Help Get-Process –Full | Out-Host –Paging
