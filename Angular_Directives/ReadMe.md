@@ -1,5 +1,5 @@
 
-### DIRECTIVES ( @Directive decorated classes ) :
+### DIRECTIVES ( are Classes that decorated by @Directive ) :
 
 1. Component type Directives :
 
