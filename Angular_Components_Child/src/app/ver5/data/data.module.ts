@@ -7,6 +7,6 @@ import { DataComponent } from './data.component';
 @NgModule({
     imports: [BrowserModule, FormsModule],
     declarations: [DataComponent],
-    exports: [DataComponent]       // экспортируем компонент
+    exports: [DataComponent]       // DataComponent IMPORTED & EXPORTED!
 })
 export class DataModule { }

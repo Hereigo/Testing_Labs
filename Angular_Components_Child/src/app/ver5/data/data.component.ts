@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'data-comp',
+    selector: 'my-data',
     template: `
         <div>
         	<h3>{{message}}</h3>
@@ -14,5 +14,5 @@ import { Component } from '@angular/core';
 })
 export class DataComponent {
 
-    message: string = "DataModule";
+    message: string = "In the Data Component.";
 }
