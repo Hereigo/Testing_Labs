@@ -10,10 +10,12 @@ import { ChildComponent } from "./child.component";
   template: `
     <child-comp #childBinder></child-comp>
     <p>
+    	<label>Binded by <b>#childBinder</b> :</label>
     	<button (click)="childBinder.increment()">+</button>
     	<button (click)="childBinder.decrement()">-</button>
     </p>
     <p>
+    	<label>Binded by <b>@ViewChild("paragrafBinder", ... : ElementRef;</b> : </label>
     	<button (click)="incrementParent()">+</button>
     	<button (click)="decrementParent()">-</button>
     </p>
