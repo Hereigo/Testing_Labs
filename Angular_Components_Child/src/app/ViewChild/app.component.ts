@@ -7,8 +7,10 @@ import { MyChildComponent } from './mychild.component';
     selector: 'my-app',
     template: `
         <p>
-        	<mychild-component #mychildRef></mychild-component>
-        	<button (click)=mychildRef.childClick()>Button 1</button>
+        	<mychild-component #parentToChildBind></mychild-component>
+        </p>
+        <p>
+        	<button (click)=parentToChildBind.childFuncForParent()>Button 1</button>
         </p>
         <p>
         	<button (click)=localClick()>Button 2</button>
@@ -19,15 +21,15 @@ import { MyChildComponent } from './mychild.component';
 })
 export class AppComponent {
 
-    @ViewChild("mychildRef", { static: false }) private myChElemRef: ElementRef;
+    @ViewChild("parentToChildBind", { static: false }) private P2ChB_ElemRef: ElementRef;
 
     localClick() {
-        this.myChElemRef['mychildText'] = this.myChElemRef['mychildText'].toUpperCase();
+        this.P2ChB_ElemRef['mychildText'] = this.P2ChB_ElemRef['mychildText'].toUpperCase();
     };
 
     @ViewChild(MyChildComponent, { static: false }) private myChCompoBind: MyChildComponent;
 
     parentClick() {
-        this.myChCompoBind.childClick()
+        this.myChCompoBind.childFuncForParent()
     };
 }

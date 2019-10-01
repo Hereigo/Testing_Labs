@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
         	<input [(ngModel)]="AppNgModelParam" placeholder="AppNgModelParam" />
         </p>
         <p>
-        	<child-comp-inp [intParam]="appComponentNumParam" [strParam]="AppNgModelParam" (childEventInsideParent)="callMyEvent($event)"></child-comp-inp>
+        	<child-comp-inp [intParam]="appComponentNumParam" [strParam]="AppNgModelParam" (outputToParentEvent)="processEvent($event)"></child-comp-inp>
         </p>
         <p>
         	<strong>Output var = {{localNumber}}</strong>
@@ -25,7 +25,7 @@ export class AppComponent {
 
     localNumber: number = 0;
 
-    callMyEvent(increased: boolean) {
-        increased == true ? this.localNumber++ : this.localNumber--;
+    processEvent(param: number) {
+        this.localNumber = param;
     }
 }

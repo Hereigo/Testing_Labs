@@ -12,13 +12,14 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
         		<strong>. @Input() set strParam.ToUpperCase() =</strong>{{strParam}}
         	</p>
         	<p>
-        		<button (click)="btnClick(true)">child-Event-Inside-Parent.emit()</button>
+        		<button (click)="btnClick(intParam)">child-Event-Inside-Parent.emit( intParam )</button>
         	</p>
         </div>`,
     styles: [`
-        #chi-wrapper {
+        #chi-wrapper,
+        button {
             border: 2px orange solid;
-            padding: 0 10px;
+            padding: 10px;
         }`]
 })
 export class ChildComponentInput {
@@ -37,10 +38,9 @@ export class ChildComponentInput {
 
     // CHILD OUTPUT VALUE BY EVENT EMISSION :
 
-    @Output() childEventInsideParent = new EventEmitter<boolean>();
+    @Output() outputToParentEvent = new EventEmitter<number>();
 
-    btnClick(clickParam: boolean) {
-
-        this.childEventInsideParent.emit(clickParam);
+    btnClick(param: number) {
+        this.outputToParentEvent.emit(param);
     }
 }
