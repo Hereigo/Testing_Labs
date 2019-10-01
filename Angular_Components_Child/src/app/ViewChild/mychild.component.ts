@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'mychild-component',
     template: `
-        <h4>{{test}}</h4>`
+        <h4>{{mychildText}}</h4>`
 })
 export class MyChildComponent { 
 
-    test:string = '= mychild-component =';
+    mychildText:string = '= mychild-component =';
 
-    click_onChild() { alert('Yo!');}
+    childClick() { alert(this.mychildText);}
 }

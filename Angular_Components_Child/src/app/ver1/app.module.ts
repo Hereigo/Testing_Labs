@@ -3,12 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ChildComponent } from './child.component';
 import { ChildComponentInput} from './child.input.component';
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
-    declarations: [AppComponent, ChildComponent, ChildComponentInput],
+    declarations: [AppComponent, ChildComponentInput],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
