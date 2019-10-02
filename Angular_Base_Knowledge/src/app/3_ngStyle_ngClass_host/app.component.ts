@@ -16,9 +16,13 @@ import { Component } from '@angular/core';
         	<p>Angular implements a modular application architecture.</p>
         	<p [ngClass]="specificStylesClass">This paragraph has even whole class of many different styles that is applied to it.</p>
         </div>
-        <div [ngClass]="{invisible: visibility}">SDFB.LJNSDB HNJ !!! =)</div>
-        <button (click)="toggleVisibility()">Toggle</button>
-        <p my-bold>. this . &lt;p my-bold&gt; processed by "MyBoldDirective" & "MyHostDirective" (point by mouse) .</p>`,
+        <div>
+        	<p [ngClass]="{invisible: visibility}">. [ngClass]=(visibility) Toggled .</p>
+        	<button (click)="toggleVisibility()">Toggle</button>
+        </div>
+        <div>
+        	<span my-bold>. this . &lt;span my-bold&gt; processed by "MyBoldDirective" & "MyHostDirective" (for mouse) .</span>
+        </div>`,
     styles: [
         `
         .invisible {
