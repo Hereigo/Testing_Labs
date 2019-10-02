@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
         </div>
         <div [ngClass]="{invisible: visibility}">SDFB.LJNSDB HNJ !!! =)</div>
         <button (click)="toggleVisibility()">Toggle</button>
-        <p my-bold>. this . &lt;p my-bold&gt; processed by "MyBoldDirective".</p>`,
+        <p my-bold>. this . &lt;p my-bold&gt; processed by "MyBoldDirective" & "MyHostDirective" (point by mouse) .</p>`,
     styles: [
         `
         .invisible {
