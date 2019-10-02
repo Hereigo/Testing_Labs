@@ -14,8 +14,8 @@ export class MyBoldDirective {
 
     // Renderer2 - is a service to put into Directive-const and manipulate styled element more comfortable.
 
-    constructor(private elementRef: ElementRef, private renderer: Renderer2){
-         
+    constructor(private elementRef: ElementRef, private renderer: Renderer2) {
+
         this.renderer.setStyle(this.elementRef.nativeElement, "font-weight", "bold");
     }
 }
