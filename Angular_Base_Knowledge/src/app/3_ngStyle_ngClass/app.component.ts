@@ -5,11 +5,11 @@ import { Component } from '@angular/core';
 
 // [ngClass]="{ verdanaFont : true }"
 
-// Directive [ngStyle] takes - not js-object but CSS-STYLES.
+// Directive [ngStyle] takes - NOT js-object but CSS-STYLES.
 // [ngStyle]="{'font-size':'13px', 'font-family':'Verdana'}"
 
 @Component({
-    selector: "my-app-comp",
+    selector: "my-app",
     template: `
         <div [ngClass]="{verdanaFont:isVerdana}">
         	<h3>Hello Angular 8</h3>
@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
         </div>
         <div [ngClass]="{invisible: visibility}">SDFB.LJNSDB HNJ !!! =)</div>
         <button (click)="toggleVisibility()">Toggle</button>
-        <p my-bold>= Selector &lt;p my-bold&gt; is applied here and processed by defined "MyBoldDirective".</p>`,
+        <p my-bold>. this . &lt;p my-bold&gt; processed by "MyBoldDirective".</p>`,
     styles: [
         `
         .invisible {
