@@ -16,6 +16,9 @@ import { Component } from '@angular/core';
         </p>
         <p>
         	<strong>Output var = {{localNumber}}</strong>
+        </p>
+        <p>
+        	<second-component-block></second-component-block>
         </p>`
 })
 export class AppComponent {
