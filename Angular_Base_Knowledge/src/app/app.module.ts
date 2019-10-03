@@ -10,7 +10,6 @@ import { NgModelComponent } from './ngClass.component';
 import { ViewChildComponent } from './viewChild.component';
 import { ViewChildSubComponent } from './viewChild2.component';
 
-
 // SELECT STARTED COMPONENT USING - bootstrap: [....Component]
 
 @NgModule({
