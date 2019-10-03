@@ -2,14 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import { MyAppComponent } from './app.component';
+import { AppComponent } from './app.component';
 
-import { MyBoldDirective } from './bold.directive';
+import { MyParamsDirective } from './params.directive';
 import { MyHostDirective } from './host.directive';
+import { MyChildComponent } from './child.component';
+
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
-    declarations: [MyAppComponent, MyBoldDirective, MyHostDirective],
-    bootstrap: [MyAppComponent]
+    declarations: [AppComponent, MyChildComponent, MyHostDirective, MyParamsDirective],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

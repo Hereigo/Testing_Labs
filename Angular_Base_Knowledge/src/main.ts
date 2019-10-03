@@ -1,6 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './app/4_directive_params/app.module';
+import { AppModule } from './app/Z_TEST/app.module';
 
 const platform = platformBrowserDynamic();
 

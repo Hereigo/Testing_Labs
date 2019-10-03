@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 
 @Component({
     selector: 'child-comp-inp',
@@ -6,10 +6,10 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
         <div id='chi-wrapper'>
         	<h4>export class ChildComponent &#123;</h4>
         	<p>
-        		<strong>. @Input() intParam =</strong>{{intParam}}
+        		<strong>. @Input() intParam</strong>= {{intParam}}
         	</p>
         	<p>
-        		<strong>. @Input() set strParam.ToUpperCase() =</strong>{{strParam}}
+        		<strong>. @Input() set strParam.ToUpperCase()</strong>= {{strParam}}
         	</p>
         	<p>
         		<button (click)="btnClick(intParam)">child-Event-Inside-Parent.emit( intParam )</button>
@@ -22,7 +22,11 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
             padding: 10px;
         }`]
 })
-export class ChildComponentInput {
+export class ChildComponentInput implements OnInit {
+    // can use for debugging.
+    ngOnInit(): void {
+        console.log("MY CHILD COMPONENT HAS INITIALISED.");
+    }
 
     @Input() intParam: number;
 

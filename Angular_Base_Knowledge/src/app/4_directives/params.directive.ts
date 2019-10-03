@@ -1,9 +1,9 @@
 import { Directive, HostListener, Input, HostBinding, OnInit } from '@angular/core';
 
 @Directive({
-    selector: '[my-bold]'
+    selector: '[my-params]'
 })
-export class MyBoldDirective implements OnInit {
+export class MyParamsDirective implements OnInit {
 
     @Input() selectedSize = "18px";
     @Input() defaultSize = "16px";

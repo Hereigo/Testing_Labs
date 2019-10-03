@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'second-component-block',
@@ -10,4 +10,9 @@ import { Component } from '@angular/core';
             padding: 10px
         }`]
 })
-export class MySecondComponent { }
+export class MySecondComponent implements OnInit {
+    // can use for debugging.
+    ngOnInit(): void {
+        console.log("MY SECOND COMPONENT HAS INITIALISED.");
+    }
+}
