@@ -14,7 +14,7 @@ import { Component, ContentChild, ElementRef } from '@angular/core';
             border: 2px solid green;
         }`]
 })
-export class MyChildComponent {
+export class ViewChildSubComponent {
 
     mychildText: string = '= mychild-component =';
 

@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { MyChildComponent } from './mychild.component';
+
+import { ViewChildSubComponent } from './viewChild2.component';
 
 // TEMPLATE #VARIABLES & @VIEW_CHILD DIRECTIVES :
 
@@ -19,7 +20,7 @@ import { MyChildComponent } from './mychild.component';
         	<button (click)=parentClick()>Button 3</button>
         </p>`
 })
-export class AppComponent {
+export class ViewChildComponent {
 
     @ViewChild("parentToChildBind", { static: false }) private P2ChB_ElemRef: ElementRef;
 
@@ -27,7 +28,7 @@ export class AppComponent {
         this.P2ChB_ElemRef['mychildText'] = this.P2ChB_ElemRef['mychildText'].toUpperCase();
     };
 
-    @ViewChild(MyChildComponent, { static: false }) private myChCompoBind: MyChildComponent;
+    @ViewChild(ViewChildSubComponent, { static: false }) private myChCompoBind: ViewChildSubComponent;
 
     parentClick() {
         this.myChCompoBind.childFuncForParent()

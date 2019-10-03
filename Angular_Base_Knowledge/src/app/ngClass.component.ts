@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 // Directive - [ngClass] takes - JS-OBJECT { js-class-name : bool (to activate class) }
 // Directive - [ngStyle] takes - Plain CSS-STYLES.
@@ -10,24 +10,20 @@ import { Component, OnInit } from '@angular/core';
         	<span [ngClass]='{componentStyle1:style1isActive}'>[ngClass] TEST!</span>
         </p>
         <p>
-        	<span [ngStyle]="{'font-size':'14px', 'font-family':'Segoe Print'}">Angular [ngStyle] (inline) testing...</span>
+        	<span [ngStyle]="{'color':'red','font-weight':'bold'}">Angular testing [ngStyle] inline declaration...</span>
         </p>
         <p>
         	<button (click)="switchMyNgClass()">switch ngClass</button>
         </p>`,
     styles: [`
         .componentStyle1 {
-            color: red;
-            font-weight: bold;
+            color: orange;
+            font-family: Segoe Print;
         }`]
 })
-export class AppComponent implements OnInit {
-    // can use for debug.
-    ngOnInit(): void {
-        console.log(" = = = APP COMPONENT HAS INITIALISED = = = ");
-    }
+export class NgModelComponent {
 
-    style1isActive: boolean = true;
+    style1isActive: boolean = false;
 
     switchMyNgClass() {
         this.style1isActive = !this.style1isActive;
