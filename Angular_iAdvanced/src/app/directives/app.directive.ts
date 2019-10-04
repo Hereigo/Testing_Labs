@@ -1,13 +1,15 @@
-import { Directive, ElementRef, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Input } from '@angular/core';
 
 @Directive({
-        selector: '[myColor]'
+        selector: '[compoColorTag]'
 })
 export class AppDirective {
         // via DI :
         // ElementRef - reference to the element processing by directive
-        constructor(elemRef: ElementRef, render: Renderer2) {
+        constructor(private elemRef: ElementRef, private renderer: Renderer2) { }
 
-                render.setStyle(elemRef.nativeElement, 'color', 'green');
+        @Input('compoColorTag') set privateNameToChangeColorMethod(color: string) {
+
+                this.renderer.setStyle(this.elemRef.nativeElement, 'color', color);
         }
 }
