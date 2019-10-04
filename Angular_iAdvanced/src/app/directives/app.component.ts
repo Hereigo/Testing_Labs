@@ -16,6 +16,10 @@ import { Component, OnInit } from '@angular/core';
                 <hr/>
                 <p>
                 	<confirm-block></confirm-block>
+                </p>
+                                <hr/>
+                <p>
+                	<mouseover-block></mouseover-block>
                 </p>`
 })
 export class AppComponent implements OnInit {
