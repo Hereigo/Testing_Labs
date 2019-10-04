@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
                 	<p>here &lt;div [compoColorTag]='localColorVar'&gt; - also sends 'color' as param to @Directive.Input()</p>
                 </div>
                 <p>
-                	<app-passing-data></app-passing-data>
+                	<repeater-block></repeater-block>
                 </p>`
 })
 export class AppComponent implements OnInit {
