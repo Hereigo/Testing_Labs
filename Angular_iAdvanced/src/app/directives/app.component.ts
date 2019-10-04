@@ -17,7 +17,11 @@ import { Component, OnInit } from '@angular/core';
                 <p>
                 	<confirm-block></confirm-block>
                 </p>
-                                <hr/>
+                <hr/>
+                <p>
+                	<host-bind-block></host-bind-block>
+                </p>
+                <hr/>
                 <p>
                 	<mouseover-block></mouseover-block>
                 </p>`

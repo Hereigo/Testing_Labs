@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AppDirective } from './app.directive';
 import { ConfirmComponent } from './confirm.component';
 import { ConfirmDirective } from './confirm.directive';
+import { HostBindComponent } from './host-bind.component';
+import { HostBindDirective } from './host-bind.directive';
 import { MouseoverComponent } from './mouseover.component';
 import { MouseoverDirective } from './mouseover.directive';
 import { RepeatComponent } from './repeat.component';
@@ -18,6 +20,8 @@ import { RepeatDirective } from './repeat.directive';
         AppDirective,
         ConfirmComponent,
         ConfirmDirective,
+        HostBindComponent,
+        HostBindDirective,
         MouseoverComponent,
         MouseoverDirective,
         RepeatComponent,

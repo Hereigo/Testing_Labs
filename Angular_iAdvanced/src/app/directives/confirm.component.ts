@@ -15,6 +15,4 @@ export class ConfirmComponent {
   localOnDeleteAction() {
     console.log("onDelete called.");
   }
-
-
 }

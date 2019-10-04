@@ -1,4 +1,4 @@
-import { Directive, Input, HostListener, ElementRef } from '@angular/core';
+import { Directive, HostListener, ElementRef } from '@angular/core';
 
 @Directive({
         selector: '[myCoords]'
@@ -12,7 +12,7 @@ export class MouseoverDirective {
         @HostListener('mousemove', ['$event'])
         onMouseMoveAct(evnt: MouseEvent) {
 
-                let msg = 'X ' + evnt.offsetX + ' Y ' + evnt.offsetY;
+                let msg = 'X ' + evnt.offsetX + ' , Y ' + evnt.offsetY;
 
                 this.elemref.nativeElement.innerHTML = msg;
         }
