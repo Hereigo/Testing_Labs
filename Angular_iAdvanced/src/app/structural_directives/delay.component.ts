@@ -10,6 +10,4 @@ import { Component } from '@angular/core';
                 <div *delayDrectiveMark='2500'>Element 5</div>
                 <div *delayDrectiveMark='3000'>Element 6</div>`
 })
-export class DelayComponent {
-
-}
+export class DelayComponent { }

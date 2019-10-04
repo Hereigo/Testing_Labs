@@ -13,7 +13,7 @@ export class ContextDirective {
         constructor(private templeRef: TemplateRef<any>, private viewContRef: ViewContainerRef) { }
 
         ngOnInit() {
-                let ctx: UserCardContext = new UserCardContext('Ivan', 'Ivanoff');
+                let ctx: UserCardContext = new UserCardContext('Ivan', 'Ivanoff', new Date());
                 this.viewContRef.createEmbeddedView(this.templeRef, ctx);
         }
 
@@ -27,9 +27,11 @@ class UserCardContext {
 
         public firstName: string;
         public lastName: string;
+        public registered: Date;
 
-        constructor(fName: string, lName: string) {
+        constructor(fName: string, lName: string, date: Date) {
                 this.firstName = fName;
                 this.lastName = lName;
+                this.registered = date;
         }
 }

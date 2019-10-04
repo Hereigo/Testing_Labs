@@ -17,8 +17,9 @@ export class DelayDirective {
 
                 // create view, using template, after 'gettingValue' mls delay
                 setTimeout(() => {
+
                         this.viewContRef.createEmbeddedView(this.templeRef);
-                },
-                        delayMilliseconds);
+
+                }, delayMilliseconds);
         }
 }

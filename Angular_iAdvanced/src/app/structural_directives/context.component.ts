@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 @Component({
         selector: 'my-context-block',
         template: `
-                <div *userCardDirecMark='let fn = firstName; let ln = lastName;'>
-                	<p>First name = {{fn}}</p>
-                	<p>Last name = {{ln}}</p>
+                <div *userCardDirecMark='let fn = firstName; let ln = lastName; let dt = registered;'>
+                	<p>First name = {{ fn }}</p>
+                	<p>Last name = {{ ln | uppercase }}</p>
+                	<p>Registered = {{ dt | date | uppercase }}</p>
                 </div>`
 })
 export class ContextComponent { }
