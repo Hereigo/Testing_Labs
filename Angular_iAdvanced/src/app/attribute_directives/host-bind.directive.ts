@@ -12,6 +12,7 @@ export class HostBindDirective {
         // This Binding means : <p myClickableElement [class.pressed]='isClicked'>
         @HostBinding('class.pressed')
         isClicked: boolean = false;
+        // isClicked - is Data Source that Decorated by HostBinding.
 
         @HostListener('mousedown')
         onMouseDownAction() {

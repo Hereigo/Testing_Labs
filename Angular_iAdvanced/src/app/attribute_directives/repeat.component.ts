@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
         selector: 'repeater-block',
         template: `
                 <div repeatMe message='Hello repeter 3' count='3'></div>
-                <repeatMe message='4 Hello repeter 4' count='4'></repeatMe>`
+                <repeatMe message='4 Hello repeter' count='4'></repeatMe>`
 })
 export class RepeatComponent { }
