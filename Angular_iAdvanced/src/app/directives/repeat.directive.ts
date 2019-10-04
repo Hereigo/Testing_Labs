@@ -13,6 +13,9 @@ export class RepeatDirective {
         constructor(private elemRef: ElementRef, private renderer: Renderer2) { }
 
         ngOnInit() {
+
+                // BAD practice - just for example.
+
                 for (let index = 0; index < this.count; index++) {
 
                         // Create div for Directive-marked element.
