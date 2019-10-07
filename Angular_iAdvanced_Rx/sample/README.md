@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # To use BOOTSTRAP :
 
-1. `npm install bootstrap --save`
+1. `npm install bootstrap@3.3.7 --save`
 
 (--save param - to add reference to the `package.json`)
 
