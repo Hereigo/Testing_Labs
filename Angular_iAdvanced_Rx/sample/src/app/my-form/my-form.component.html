@@ -1,84 +1,44 @@
+<div>
+  В данном примере добавленна проверка введенных данных.
+</div>
 <form novalidate [formGroup]="registrationForm">
-  <!-- To fast create use :
-    (div.form-group>label+input.form-control)*4  - then press TAB -->
-
-  <fieldset formGroupName="myFormName">
-    <div
-      class="form-group"
-      [ngClass]="{
-        'has-error':
-          registrationForm.controls.myFormName.controls.firstName.invalid &&
-          registrationForm.controls.myFormName.controls.firstName.dirty,
-        'has-success':
-          registrationForm.controls.myFormName.controls.firstName.valid &&
-          registrationForm.controls.myFormName.controls.firstName.dirty
-      }"
-    >
-      <label for="firstName">First name</label>
-      <input
-        id="firstName"
-        type="text"
-        class="form-control"
-        formControlName="firstName"
-      />
+  <fieldset formGroupName="name">
+    
+    <div class="form-group" [ngClass]="{
+      'has-error': registrationForm.controls.name.controls.firstName.invalid 
+                  && registrationForm.controls.name.controls.firstName.dirty,
+      'has-success': registrationForm.controls.name.controls.firstName.valid 
+                  && registrationForm.controls.name.controls.firstName.dirty }">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName">
     </div>
-    <div
-      class="form-group"
-      [ngClass]="{
-        'has-error':
-          registrationForm.controls.myFormName.controls.lastName.invalid &&
-          registrationForm.controls.myFormName.controls.lastName.dirty,
-        'has-success':
-          registrationForm.controls.myFormName.controls.lastName.valid &&
-          registrationForm.controls.myFormName.controls.lastName.dirty
-      }"
-    >
-      <label for="lastName">Last name</label>
-      <input
-        id="lastName"
-        type="text"
-        class="form-control"
-        formControlName="lastName"
-      />
+
+    <div class="form-group"[ngClass]="{
+      'has-error': registrationForm.controls.name.controls.lastName.invalid 
+                  && registrationForm.controls.name.controls.lastName.dirty,
+      'has-success': registrationForm.controls.name.controls.lastName.valid 
+                  && registrationForm.controls.name.controls.lastName.dirty }">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName">
     </div>
   </fieldset>
-  <div
-    class="form-group"
-    [ngClass]="{
-      'has-error':
-        registrationForm.controls.email.invalid &&
-        registrationForm.controls.email.dirty,
-      'has-success':
-        registrationForm.controls.email.valid &&
-        registrationForm.controls.email.dirty
-    }"
-  >
-    <label for="email">Email</label>
-    <input
-      id="email"
-      type="text"
-      class="form-control"
-      formControlName="email"
-    />
+
+  <div class="form-group" [ngClass]="{
+      'has-error': registrationForm.controls.email.invalid && registrationForm.controls.email.dirty,
+      'has-success': registrationForm.controls.email.valid && registrationForm.controls.email.dirty }">
+    <label>Email</label>
+    <input type="email" class="form-control" formControlName="email">
   </div>
-  <div
-    class="form-group"
-    [ngClass]="{
-      'has-error':
-        registrationForm.controls.password.invalid &&
-        registrationForm.controls.password.dirty,
-      'has-success':
-        registrationForm.controls.password.valid &&
-        registrationForm.controls.password.dirty
-    }"
-  >
-    <label for="password">Password</label>
-    <input
-      id="password"
-      type="text"
-      class="form-control"
-      formControlName="password"
-    />
+
+  <div class="form-group" [ngClass]="{
+      'has-error': registrationForm.controls.password.invalid && registrationForm.controls.password.dirty,
+      'has-success': registrationForm.controls.password.valid && registrationForm.controls.password.dirty }">
+    <label for="">Password</label>
+    <input type="password" class="form-control" formControlName="password">
   </div>
-  <input type="submit" class="btn btn-primary" />
+  <input type="submit" class="btn btn-default">
 </form>
+
+<br>
+
+<pre>{{registrationForm.value |json}}</pre>
