@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
         <p>
         	<span>Child component with @Input param.</span>
         	<br/>
-        	<span my-params>. this . &lt;span my-params&gt; processed by "MyParamsDirective" .</span>
+        	<span my-params [defaultSize]='childFontSize'>. this . &lt;span my-params&gt; processed by "MyParamsDirective" .</span>
         </p>`,
     styles: [`
         p {
@@ -16,6 +16,8 @@ import { Component, Input } from '@angular/core';
 })
 export class MyChildComponent {
 
-    @Input() childFontSize: number;
+    // TODO :
+    // to do something to make it work!!!
+    @Input() childFontSize: string = '36px';
 
 }

@@ -5,7 +5,7 @@ import { Directive, HostListener, Input, HostBinding, OnInit } from '@angular/co
 })
 export class MyParamsDirective implements OnInit {
 
-    @Input() selectedSize = "18px";
+    @Input() selectedSize = "20px";
     @Input() defaultSize = "16px";
 
     private fontSize: string;
