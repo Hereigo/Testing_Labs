@@ -34,6 +34,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 2. Add reference to `"node_modules/bootstrap/dist/css/bootstrap.min.css"` in the `angular.json` or `.angular.cli.json` file in to `"styles"`-section.
 
+OR add `@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";` inside of main `styles.css`
+
 (to allow bootstrap styles for all our application components)
 
 3. Generate new Component - `ng g c my-form` => my-form.component.ts

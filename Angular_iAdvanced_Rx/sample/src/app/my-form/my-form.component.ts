@@ -17,12 +17,16 @@ export class MyFormComponent implements OnInit {
   ngOnInit() {
 
     this.registrationForm = new FormGroup({
+
       myFormName: new FormGroup({
         firstName: new FormControl('', Validators.required),
         lastName: new FormControl('', Validators.required)
       }),
+
       email: new FormControl('', [Validators.required, Validators.pattern('[^ @]*@[^ @]')]),
+
       password: new FormControl('', [Validators.required, Validators.minLength(8)])
+
     });
   }
 
