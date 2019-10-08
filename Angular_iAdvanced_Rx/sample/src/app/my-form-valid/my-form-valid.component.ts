@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { asyncEmailValidator } from './my-email-async-validator';
+import { asyncEmailValidator } from './my-email-async.validator';
 
 @Component({
   selector: 'app-my-form',
