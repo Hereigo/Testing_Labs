@@ -66,9 +66,10 @@
       ---------------------------- abcd.touched == field is leaved by user -->
     <div
       class="alert alert-danger"
-      *ngIf="email.errors && (email.dirty || email.touched)">
+      *ngIf="email.errors && (email.dirty || email.touched)"
+    >
       <p *ngIf="email.errors.required">field required!</p>
-      <p *ngIf="email.errors.pattern">not valid email!</p>
+      <p *ngIf="email.errors.emailValidator">not valid email!</p>
     </div>
   </div>
 
@@ -91,7 +92,10 @@
       *ngIf="password.errors && (password.dirty || password.touched)"
     >
       <p *ngIf="password.errors.required">field required!</p>
-      <p *ngIf="password.errors.minlength">password can't be less than {{password.errors.minlength.requiredLength}} chars!</p>
+      <p *ngIf="password.errors.minlength">
+        password can't be less than
+        {{ password.errors.minlength.requiredLength }} chars!
+      </p>
     </div>
   </div>
 
