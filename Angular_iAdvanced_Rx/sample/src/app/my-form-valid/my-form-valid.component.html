@@ -1,4 +1,6 @@
-<form novalidate [formGroup]="registrationForm" (ngSubmit)="ngMyFormSubmit()">
+<h4>NG-Forms validators & async :</h4>
+<hr />
+<form novalidate [formGroup]="registrationForm" (ngSubmit)="onSubmitMyForm()">
   <!-- To fast create use :
     (div.form-group>label+input.form-control)*4  - then press TAB -->
 
@@ -58,19 +60,21 @@
     <label for="email">Email</label>
     <input
       id="email"
-      type="text"
+      type="email"
       class="form-control"
       formControlName="email"
     />
-    <!-- ------------------------- abcd.dirty == field has changed, 
+    <!-- ------------------------- abcd.dirty == field has changed, //  - {{email.errors.asyncMyEmailValidator.message}}
       ---------------------------- abcd.touched == field is leaved by user -->
     <div
       class="alert alert-danger"
       *ngIf="email.errors && (email.dirty || email.touched)"
     >
       <p *ngIf="email.errors.required">field required!</p>
-      <p *ngIf="email.errors.email">not valid email!</p>
+      <p *ngIf="email.errors.asyncEmailValidator">{{email.errors.asyncEmailValidator.message}}</p>
     </div>
+    <!-- Temporary show while waiting... -->
+    <div *ngIf="email.pending">Wait. Email is checking...</div>
   </div>
 
   <div

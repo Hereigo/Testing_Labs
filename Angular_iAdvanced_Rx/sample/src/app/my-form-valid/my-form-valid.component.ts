@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { asyncEmailValidator } from './my-email-async-validator';
 
 @Component({
   selector: 'app-my-form',
-  templateUrl: './my-form.component.html'
+  templateUrl: './my-form-valid.component.html'
 })
 export class MyFormComponent implements OnInit {
 
@@ -25,7 +26,7 @@ export class MyFormComponent implements OnInit {
   createFormControls() {
     this.firstName = new FormControl('', Validators.required);
     this.lastName = new FormControl('', Validators.required);
-    this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.email = new FormControl('', Validators.required, asyncEmailValidator);
     this.password = new FormControl('', [Validators.required, Validators.minLength(8)]);
   }
 
@@ -40,12 +41,16 @@ export class MyFormComponent implements OnInit {
     });
   }
 
-  ngMyFormSubmit() {
+  onSubmitMyForm() {
+
     if (this.registrationForm.valid) {
+
       console.log(' === Form submitted:');
       console.log(this.registrationForm.value);
+
     } else {
-      console.log('Form mot valid!');
+
+      console.log('Form not valid!');
     }
   }
 }
