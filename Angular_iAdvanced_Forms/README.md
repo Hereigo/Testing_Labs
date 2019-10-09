@@ -1,3 +1,19 @@
+# TO USE BOOTSTRAP :
+
+1. `npm install bootstrap@3.3.7 --save`
+
+(--save param - to add reference to the `package.json`)
+
+2. Add reference to `"node_modules/bootstrap/dist/css/bootstrap.min.css"` in the `angular.json` or `.angular.cli.json` file in to `"styles"`-section.
+
+OR add `@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";` inside of main `styles.css`
+
+(to allow bootstrap styles for all our application components)
+
+3. Generate new Component - `ng g c my-form` => my-form.component.ts
+
+### ========================================================================================
+
 # Sample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
@@ -25,19 +41,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-# TO USE BOOTSTRAP :
-
-1. `npm install bootstrap@3.3.7 --save`
-
-(--save param - to add reference to the `package.json`)
-
-2. Add reference to `"node_modules/bootstrap/dist/css/bootstrap.min.css"` in the `angular.json` or `.angular.cli.json` file in to `"styles"`-section.
-
-OR add `@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";` inside of main `styles.css`
-
-(to allow bootstrap styles for all our application components)
-
-3. Generate new Component - `ng g c my-form` => my-form.component.ts
-
-
