@@ -1,22 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FormComponent } from './my-form2-dynamic/form/form.component';
+import { FormComponent } from './form/form.component';
+import { FormElementComponent } from './form/form-element.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    FormElementComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: 'my-form2-dynamic/form', component: FormComponent }
-    ])
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

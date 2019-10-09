@@ -1,0 +1,21 @@
+<!-- [formGroup]="form" - is reference to FORM to insert current Element -->
+<div [formGroup]="form">
+
+    <label class="" [attr.for]="element.key">{{element.label}}</label>
+
+    <!-- SELECTOR for : What ELEMENT's TYPE sould be created -->
+    <div [ngSwitch]="element.controlType">
+
+        <input *ngSwitchCase="'textbox'" [formControlName]="element.key" [id]="element.key" [type]="element.key" class="form-control">
+
+        <select *ngSwitchCase="'dropdown'" [formControlName]="element.key" [id]="element.key" [type]="element.key">
+            <option *ngFor="let opt of element.options" [value]="opt.ket">{{opt.value}}</option>
+        </select>
+
+    </div>
+
+    <div class="alert alert-danger" *ngIf="!isValid && isDirty">
+        {{element.label}} is required!
+    </div>
+
+</div>

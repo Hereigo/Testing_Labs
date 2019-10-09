@@ -12,7 +12,5 @@ export class TextBoxElement extends ElementBase<string> {
         super(elemOptions);
 
         this.type = elemOptions['type'] || 'text';
-
     }
-
 }

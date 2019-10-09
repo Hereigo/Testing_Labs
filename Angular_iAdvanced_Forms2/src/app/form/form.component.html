@@ -1,0 +1,20 @@
+<div class="container">
+
+    <!-- This [formGroup] is created by 'ElementsService' from "elements" array... -->
+
+    <form (ngSubmit)="onMyFormSubmit()" [formGroup]="form">
+
+        <!-- ngFor == ForEach for 'elements' collection -->
+        <div class="form-group" *ngFor="let element of elements">
+
+            <!-- Two @Input() params for FormElementComponent -->
+            <form-element [element]="element" [form]="form">
+            </form-element>
+
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Save">
+
+    </form>
+
+</div>

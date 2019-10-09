@@ -9,7 +9,7 @@ export class ElementBase<T> {
   label: string;
   order: number;
   required: boolean;
-  value: T;
+  value: T; // GENERIC TYPE for ElementType on Form
 
   // Assign OPTIONS-data to ELEMENT_BASE-data :
 
