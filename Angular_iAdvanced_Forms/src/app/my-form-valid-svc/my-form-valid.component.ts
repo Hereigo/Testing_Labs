@@ -9,7 +9,7 @@ import { MyBlackListService } from './my-blacklist.service'; // @Injectable()
   templateUrl: './my-form-valid.component.html',
   providers: [MyBlackListService] // Usually PROVIDERS are Registered in MODULES !
 })
-export class MyFormComponent implements OnInit {
+export class FormComponent implements OnInit {
 
   // MODEL-DRIVEN_DEVELOPMENT  - start and full implement DEVELOPMENT from creating Model...
 

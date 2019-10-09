@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   selector: 'app-my-form',
   templateUrl: './my-form.component.html'
 })
-export class MyFormComponent implements OnInit {
+export class FormComponent implements OnInit {
 
   // MODEL-DRIVEN_DEVELOPMENT  - start and full implement DEVELOPMENT from creating Model...
 

@@ -1,22 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MyFormComponent } from './my-form-valid-svc/my-form-valid.component';
+import { FormComponent } from './my-form-valid-svc/my-form-valid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyFormComponent
+    FormComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: 'my-form-valid-svc', component: MyFormComponent }
-    ])
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
