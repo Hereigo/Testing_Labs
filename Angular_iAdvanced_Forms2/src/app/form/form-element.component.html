@@ -6,16 +6,15 @@
     <!-- SELECTOR for : What ELEMENT's TYPE sould be created -->
     <div [ngSwitch]="element.controlType">
 
-        <input *ngSwitchCase="'textbox'" [formControlName]="element.key" [id]="element.key" [type]="element.key" class="form-control">
+        <input *ngSwitchCase="'textbox'" [formControlName]="element.key" [id]="element.key" [type]="element.type" class="form-control">
 
-        <select *ngSwitchCase="'dropdown'" [formControlName]="element.key" [id]="element.key" [type]="element.key">
-            <option *ngFor="let opt of element.options" [value]="opt.ket">{{opt.value}}</option>
+        <select *ngSwitchCase="'dropdown'" [formControlName]="element.key" [id]="element.key" [type]="element.type">
+            <option *ngFor="let opt of element.options" [value]="opt.key">{{opt.value}}</option>
         </select>
-
     </div>
 
     <div class="alert alert-danger" *ngIf="!isValid && isDirty">
-        {{element.label}} is required!
+        {{element.label}} is required
     </div>
 
 </div>

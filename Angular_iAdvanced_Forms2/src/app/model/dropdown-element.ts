@@ -8,9 +8,9 @@ export class DropDownElement extends ElementBase<string> {
     // additional property (not existed in ElementBase)
     options: { key: string; value: string }[] = []; // INITAILIZ NEEEEEEEEEEEEEEEDED ????????????????
 
-    constructor(elemOptions: ElementOptions = {}) {
-        super(elemOptions);
+    constructor(options: ElementOptions = {}) {
+        super(options);
 
-        this.options = elemOptions['options'] || [];
+        this.options = options['options'] || [];
     }
 }

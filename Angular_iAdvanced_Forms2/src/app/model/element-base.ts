@@ -13,13 +13,13 @@ export class ElementBase<T> {
 
   // Assign OPTIONS-data to ELEMENT_BASE-data :
 
-  constructor(elemOptions: ElementOptions = {}) {
+  constructor(options: ElementOptions = {}) {
 
-    this.controlType = elemOptions.controlType || '';
-    this.key = elemOptions.key || '';
-    this.label = elemOptions.label || '';
-    this.order = elemOptions.order === undefined ? 1 : elemOptions.order;
-    this.required = !!elemOptions.required;
-    this.value = elemOptions.value;
+    this.controlType = options.controlType || '';
+    this.key = options.key || '';
+    this.label = options.label || '';
+    this.order = options.order === undefined ? 1 : options.order;
+    this.required = !!options.required;
+    this.value = options.value;
   }
 }

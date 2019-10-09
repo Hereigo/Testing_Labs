@@ -10,7 +10,7 @@ import { FormsService } from './shared/forms.service';
 })
 export class AppComponent {
 
-  title = 'my * title';
+  title = 'my title';
 
   elements: ElementBase<any>[];
 

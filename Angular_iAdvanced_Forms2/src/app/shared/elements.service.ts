@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ElementBase } from '../model/element-base';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+
+import { ElementBase } from '../model/element-base';
 
 @Injectable()
 export class ElementsService {
@@ -8,7 +9,7 @@ export class ElementsService {
   constructor() { }
 
   toFormGroup(elements: ElementBase<any>[]) {
-    const group: any = {};
+    let group: any = {};
 
     elements.forEach(
       element => {

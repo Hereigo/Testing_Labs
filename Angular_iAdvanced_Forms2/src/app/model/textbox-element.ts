@@ -8,9 +8,9 @@ export class TextBoxElement extends ElementBase<string> {
     // additional property (not existed in ElementBase)
     type: string;
 
-    constructor(elemOptions: ElementOptions = {}) {
-        super(elemOptions);
+    constructor(options: ElementOptions = {}) {
+        super(options);
 
-        this.type = elemOptions['type'] || 'text';
+        this.type = options['type'] || 'text';
     }
 }
