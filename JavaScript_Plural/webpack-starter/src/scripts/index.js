@@ -1,56 +1,6 @@
 import '../styles/index.scss';
 
-console.log(' = = =  SPREAD SYNTAX & REST PARAMETERS : = = =  ');
-
-function restParams(day, ...allCarIds) {
-    allCarIds.forEach(id => console.log(id));
-}
-
-function spreadSyntax(p1, p2, p3, p4, p5) {
-    console.log(p1, p2, p3, p4, p5);
-}
-
-restParams('TUE', 100, 200, 300); // 100 200 300
-spreadSyntax(...
-    'TUE', 100, 200, 300); // T  U  E  100  200
-
-// REST PARAMS - use 'rest params' as array.
-// SPREAD SYNTAX - use n-number of FIRST PARAMS as array.
-
-function spreadAndRestParams(firstChar, secondChar, ...lastArray) {
-    console.log(firstChar, secondChar, lastArray);
-}
-spreadAndRestParams(...
-    'ABCD', 5, 6, 7); // A,  B,  ['C','D', 5, 6, 7]
-
-console.log();
-console.log(' = = =  DESTRUCTURING ARRAYS : = = =  ');
-
-let carIds = [1, 2, 3, 4];
-let [car1, car2, car3] = carIds; // '4' is EXCLUDED!
-console.log(car1, car2, car3);
-
-let car1st, remainingCars;
-
-[car1st, ...remainingCars] = carIds; // '4' is INCLUDED!
-[, ...remainingCars] = carIds; // same as previous (if we not needed of car1st)
-
-console.log(remainingCars);
-
-console.log();
-console.log(' = = =  DESTRUCTURING OBJECTS : = = =  ');
-
-let car = { id: 5000, style: 'convertible' };
-
-let { id, style } = car; // use CAR's properties to define NEW CAR OBJECT!
-// let style;
-// ({ style } = car);
-// possible to create new object, ommited some properties!
-
-console.log(id, style);
-
-console.log();
-console.log(' = = =  TYPEOF : = = =  ');
+console.log(' = = =  TYPEOF & COERCION OF TYPES CONVERTION : = = =  ');
 
 console.log(typeof(null)); // object
 console.log(typeof(undefined)); // undefined
@@ -61,3 +11,41 @@ console.log(typeof(NaN)); // number
 
 console.log(Number.parseFloat('55.99ABC')); // 55.99
 console.log('55.99ABC'.toString()); // 55.99ABC
+
+console.log(5 - "1"); // 4
+console.log(5 + "1"); // 51 
+console.log(8 * null); // 0 
+console.log("five" * 2); // NaN 
+console.log(false == 0); // true
+console.log(null == 0); // false
+console.log(NaN == NaN); // false
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+
+let test = null;
+console.log(!test); // true
+if (!test) { test = {}; } // practical using.
+console.log(!test); // false
+
+console.log('ABC' < 'ZZZ'); // true
+console.log('abc' < 'ZZZ'); // false
+
+console.log("firstVal" || "defaulValue"); // firstVal
+console.log(null || "defaulValue"); // defaulValue
+console.log(null && "defaulValue"); // null
+console.log("firstVal" && "defaulValue"); // defaulValue
+
+console.log(5 && true); // true
+
+console.log(' = = = OR (||) IS MORE PRECEDENCE THAN && = = = ');
+
+console.log(true || false && false); // true
+console.log(true && false || false); // false
+console.log(false || false && true); // false
+console.log(false && false || true); // true
+
+let uno = 100;
+for (let i = 0; i < 9; i++) {
+    console.log(i + ' - ' + (uno >> i) + ' - ' + (uno << i));
+}
+// x >> i == (x/2) i times, x << i == (x*2) i times
