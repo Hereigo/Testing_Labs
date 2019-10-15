@@ -1,10 +1,24 @@
 <br />
 <div class="container theme-showcase" role="main">
-    <div class="jumbotron">
-        <h1>
-            Hello all!
-        </h1>
+    <div>
+
+        <input type="text" class="form-control" (input)='onUpdateServerName($event)'>
+
+        <label>Server name:</label>
+        <p>{{serverName}}</p>
+
+        <br />
+
+        <button class="btn btn-primary" [disabled]="!allowNewServer" (click)='onServerCreated()'>
+            Add Server
+        </button>
+
+        <h4>Is disabled = {{allowNewServer}}</h4>
+
+        <h4>{{serverCreationStatus}}</h4>
+
         <app-server-component></app-server-component>
         <app-server-component></app-server-component>
+
     </div>
 </div>
