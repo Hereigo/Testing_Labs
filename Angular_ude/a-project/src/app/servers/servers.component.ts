@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {
 
-  title = 'a-project';
   allowNewServer = false;
+  serverCreated = false;
   serverCreationStatus = 'No server was created.';
   serverName = 'Test Server 1';
 
@@ -19,6 +19,7 @@ export class ServersComponent {
 
   // <button (click)='onServerCreated()' >
   onServerCreated() {
+    this.serverCreated = true;
     this.serverCreationStatus = 'Server was created with name : ' + this.serverName;
   }
 

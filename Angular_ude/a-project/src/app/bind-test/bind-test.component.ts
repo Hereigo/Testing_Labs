@@ -8,4 +8,4 @@ import { Component } from '@angular/core';
             width: 150px
         }`]
 })
-export class BindTestComponent {}
+export class BindTestComponent { }
