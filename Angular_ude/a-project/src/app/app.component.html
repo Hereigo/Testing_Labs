@@ -1,4 +1,21 @@
 <div>
+    <hr />
+    <div>
+
+        <button class="btn btn-primary" (click)="onToggleDetails()">Display Details 1</button> &nbsp;
+        <!-- inline toggling with no using component code : -->
+        <button class="btn btn-primary" (click)="showSecret = !showSecret">Display Details 2</button>
+
+        <p *ngIf="showSecret">Secret Password = tuna.</p>
+
+        <ul>
+            <li *ngFor="let logItem of log; let i = index" [ngStyle]="{color: i >= 5 ? 'red' : 'green'}">
+                {{i + ' - ' + logItem}}
+            </li>
+        </ul>
+
+    </div>
+    <hr />
 
     <app-servers-component></app-servers-component>
 

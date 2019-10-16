@@ -8,4 +8,14 @@ import { Component } from '@angular/core';
         margin: 30px;
     }`]
 })
-export class AppComponent { }
+export class AppComponent {
+
+  showSecret = false;
+  log = [];
+
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    this.log.push(new Date().toLocaleTimeString());
+  }
+
+}

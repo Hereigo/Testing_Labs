@@ -22,11 +22,11 @@
     <h4>Button enabled = {{allowNewServer}}</h4>
 
     <!-- To show element by condition : -->
-    <p *ngIf="serverCreated; else noServCreated">{{serverCreationStatus}}</p>
+    <p *ngIf="serverCreated; else serverNotCreated">{{serverCreationStatus}}</p>
 
     <!-- Implement ELSE for previous Condition : -->
-    <ng-template #noServCreated>
-        <p>Server was no created yet...</p>
+    <ng-template #serverNotCreated>
+        <p>New server was no created yet...</p>
     </ng-template>
 
     <app-server-component *ngFor="let serv of serversArr"></app-server-component>
