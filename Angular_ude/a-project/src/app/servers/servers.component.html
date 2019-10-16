@@ -1,0 +1,32 @@
+<br />
+<div class="container theme-showcase" role="main">
+    <div>
+
+        <!-- PROPERTY BINDING : -->
+        <label>One-way Binding:</label>
+        <input type="text" class="form-control" (input)='onUpdateServerName($event)'>
+        <hr />
+
+        <!-- PROPERTY TWO-WAYS BINDING : -->
+        <label>Two-way Binding (with default):</label>
+        <input type="text" class="form-control" [(ngModel)]="serverName">
+
+        <!-- STRING INTERPOLATION : -->
+        <label>Server name:</label>
+        <p>{{serverName}}</p>
+
+        <hr />
+        <!-- PROPERTY BINDING : -->
+        <button class="btn btn-primary" [disabled]="!allowNewServer" (click)='onServerCreated()'>
+            Add Server
+        </button>
+
+        <h4>Is disabled = {{allowNewServer}}</h4>
+
+        <h4>{{serverCreationStatus}}</h4>
+
+        <app-server-component></app-server-component>
+        <app-server-component></app-server-component>
+
+    </div>
+</div>

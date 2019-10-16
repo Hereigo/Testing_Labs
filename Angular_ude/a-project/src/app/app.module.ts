@@ -3,12 +3,16 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ServerComponentComponent } from './server-component/server-component.component';
+import { ServerComponent } from './server/server.component';
+import { ServersComponent } from './servers/servers.component';
+import { BindTestComponent } from './bind-test/bind-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ServerComponentComponent
+    BindTestComponent,
+    ServerComponent,
+    ServersComponent
   ],
   imports: [
     BrowserModule,
