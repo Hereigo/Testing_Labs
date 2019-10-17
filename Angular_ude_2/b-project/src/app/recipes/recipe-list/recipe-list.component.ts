@@ -9,8 +9,11 @@ import { Recipe } from '../recipe.model';
 export class RecipeListComponent {
 
   recipes: Recipe[] = [
-    new Recipe('A test recipe', 'This is just a test recipe...',
-      'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/caponata-pasta_1.jpg')
-  ];
 
+    new Recipe('A test recipe', 'This is just a test recipe...',
+      'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/caponata-pasta_1.jpg'),
+
+    new Recipe('A test recipe 2', 'Second just a test recipe...',
+      'https://www.yummyhealthyeasy.com/wp-content/uploads/2019/02/chicken-marsala-recipe-4.jpg')
+  ];
 }
