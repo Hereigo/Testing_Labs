@@ -5,10 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "firefox",
+            "firefoxExecutable": "C:\\Users\\andrii.plakhtii\\AppData\\Local\\Mozilla Firefox\\firefox.exe",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\JavaScript_Plural\\webpack-starter\\src\\scripts\\index.js"
+            "reAttach": true,
+            "name": "Launch localhost",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}",
+            "file": "${workspaceFolder}\\Angular_ude\\a-project\\src\\index.html"
         }
     ]
 }
