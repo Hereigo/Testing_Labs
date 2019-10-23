@@ -15,7 +15,7 @@ import { Routes, RouterModule } from '@angular/router';
 const allMyAppRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'srevers', component: ServersComponent }
+  { path: 'servers', component: ServersComponent }
 ];
 
 @NgModule({
@@ -31,7 +31,7 @@ const allMyAppRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(allMyAppRoutes)
+    RouterModule.forRoot(allMyAppRoutes) // routing
   ],
   providers: [],
   bootstrap: [AppComponent]

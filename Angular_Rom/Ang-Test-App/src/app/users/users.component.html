@@ -1,4 +1,18 @@
 <div class="row">
+
+    <div class="col-xs-12 col-sm-4">
+
+        <!-- <a routerLink="users">Reload page</a> - ERROR coze of users/users !!! -->
+        <!-- <a routerLink="#">Reload page</a> - ERROR coze of users/%23 !!! -->
+        <a routerLink=".">Reload page</a>
+
+        <app-user></app-user>
+
+        <!-- ABSOLUTE path but not RELATIVE -->
+        <a routerLink="../servers">Go to Servers</a>
+
+    </div>
+
     <div class="col-xs-12 col-sm-4">
         <div class="list-group">
             <a href="#" class="list-group-item" *ngFor="let user of users">
@@ -6,7 +20,5 @@
             </a>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-        <app-user></app-user>
-    </div>
+
 </div>
