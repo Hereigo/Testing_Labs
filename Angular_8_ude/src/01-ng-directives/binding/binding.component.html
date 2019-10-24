@@ -1,0 +1,19 @@
+<hr />
+<h3>Binding : </h3>
+
+<label>(input)='onInputChanged($event) - one-way : </label>
+<input type="text" class="form-control" (input)='onInputChanged($event)'>
+
+<br><br>
+
+<label>input [(ngModel)]="myText" : </label>
+<input type="text" [(ngModel)]="myText">
+
+
+<p>Just string {{" { { myText } } "}} here : {{myText}} </p>
+
+
+<label>[disabled]=myText == '' (click)=myText='' : </label>
+
+<button class="form-control" [disabled]="myText === ''" (click)="myText=''">Set myText Empty</button>
+

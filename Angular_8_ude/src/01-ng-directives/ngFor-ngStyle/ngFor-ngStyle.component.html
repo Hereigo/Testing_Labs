@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-xs-12">
+
+        <h3 *ngIf="!showHeader">My *ngFor, *ngClass Servers :</h3>
+        <!-- inline toggling with no using component code : -->
+        <button class="btn btn-primary" (click)="showHeader = !showHeader">Show/Hide header</button>
+
+        <!-- To show element by condition : -->
+        <p *ngIf="servers.length < serversCountAllowed; else tooMuchServers">
+            <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+        </p>
+
+        <!-- Implement ELSE for previous Condition : -->
+        <ng-template #tooMuchServers>
+            <p>You can not create more than {{serversCountAllowed}} servers.</p>
+        </ng-template>
+
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let server of servers; let i = index"
+                [ngClass]="{onlineClass: server.status === 'online', offlineClass: server.status != 'online'}"
+                (click)="onRemoveServer(i)">
+                {{server.name}} - ( {{i}} ) is {{server.status}}
+            </li>
+        </ul>
+
+    </div>
+</div>

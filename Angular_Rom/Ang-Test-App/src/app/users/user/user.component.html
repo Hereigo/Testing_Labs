@@ -1,3 +1,11 @@
 <h4>1 user works!</h4>
 
-<p>Hi, {{user.name}}</p>
+<p>Hi, {{user.name}} ({{user.id}}) !</p>
+
+<hr />
+
+<!-- This routerLink navigate us to NEW PATH however without RELOAD !
+    and does NOT CHANGE {{user.name}} {{user.id}} -->
+<a [routerLink]="[ '/users', 10, 'Johnny']"> / Users / 10 / Johnny</a>
+
+<hr />

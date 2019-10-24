@@ -14,22 +14,14 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
 
-    // let idInsideRouteParsed = 1;
-
-    // if (this.injectedCurrentRoute.snapshot.params['id']) {
-
-    //   let parsed = 
-    //   idInsideRouteParsed = parsed == undefined ? 1 : parsed;
-    // }
+    let nameInsideRoute = this.injectedCurrentRoute.snapshot.params['name'];
 
     let idInsideRoute = parseInt(this.injectedCurrentRoute.snapshot.params['id']);
 
     this.user = {
       id: idInsideRoute,
-      name: 'User_' + idInsideRoute
+      name: nameInsideRoute == undefined ? 'noname' : nameInsideRoute
     }
-    //this.user.id = 2; //idInsideRouteParsed;
-    // this.oneUser.name = 'User_' + idInsideRouteParsed;
 
   }
 

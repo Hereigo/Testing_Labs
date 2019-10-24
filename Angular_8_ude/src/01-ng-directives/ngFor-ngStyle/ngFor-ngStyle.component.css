@@ -1,0 +1,16 @@
+li {
+    border: solid 1px grey;
+}
+
+li:hover {
+    background-color: lightblue;
+}
+
+.onlineClass {
+    color: blue;
+}
+
+.offlineClass {
+    color: red;
+    font-weight: bold;
+}
