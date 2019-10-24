@@ -21,4 +21,4 @@ import { NgSwitchComponent } from './ng-switch/ng-switch.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule_01 { }
+export class AppModule { }
