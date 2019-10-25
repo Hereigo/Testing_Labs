@@ -8,4 +8,13 @@ export class AppComponent {
 
   appPropertyCollection = [{ type: 'type 1', name: 'Somebody', content: 'Bla-bla-bla ...' }];
 
+  onAddOneAnother(incomingObject: { name: string, content: string }) {
+
+
+    this.appPropertyCollection.push({ type: '', name: 'New one.', content: incomingObject.content });
+
+
+
+  }
+
 }

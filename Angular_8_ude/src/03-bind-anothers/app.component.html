@@ -3,6 +3,10 @@
 
     <p>app 03 works!</p>
 
+    <button class="btn btn-primary" (click)="onAddOneAnother($event)">Add one another</button>
+
+    <h4>Another Components below :</h4>
+
     <app-another *ngFor="let appProperty of appPropertyCollection" [anotherCompPropNick]="appProperty">
     </app-another>
 
