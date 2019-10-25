@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class AnotherComponent {
 
-  @Input() anotherComponentProp: { type: string, name: string, content: string };
+  @Input('anotherCompPropNick') anotherComponentProp: { type: string, name: string, content: string };
 
 }
