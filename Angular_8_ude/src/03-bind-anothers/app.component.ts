@@ -2,19 +2,27 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
-  appPropertyCollection = [{ type: 'type 1', name: 'Somebody', content: 'Bla-bla-bla ...' }];
+  serverElements = [{ type: "server", name: "TestServer 1", content: "just a testing text." }];
 
-  onAddOneAnother(incomingObject: { name: string, content: string }) {
+  onServerAdded(serverData: { serverName: string, serverContent: string }) {
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName,
+      content: serverData.serverContent
+    });
+  }
 
-
-    this.appPropertyCollection.push({ type: '', name: 'New one.', content: incomingObject.content });
-
-
-
+  onBlueprintAdded(blueprintData: { serverName: string, serverContent: string }) {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: blueprintData.serverName,
+      content: blueprintData.serverContent
+    });
   }
 
 }

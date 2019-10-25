@@ -1,13 +1,14 @@
-<br>
 <div class="container">
 
-    <p>app 03 works!</p>
+    <app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
 
-    <button class="btn btn-primary" (click)="onAddOneAnother($event)">Add one another</button>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
 
-    <h4>Another Components below :</h4>
+            <app-server-element *ngFor="let serverElement of serverElements" [elementAlias]="serverElement">
+            </app-server-element>
 
-    <app-another *ngFor="let appProperty of appPropertyCollection" [anotherCompPropNick]="appProperty">
-    </app-another>
-
+        </div>
+    </div>
 </div>
