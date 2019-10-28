@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-one-element',
@@ -6,7 +6,14 @@ import { Component, Input } from '@angular/core';
     <div class="panel panel-default">
     	<div class="panel-heading">{{ element.name }}</div>
     	<div class="panel-body">{{ element.name }} is created.</div>
-    </div>`
+    </div>`,
+  styles: [`
+    div {
+        border: solid 1px blue;
+        padding: 10px
+    }`],
+  // Set STYLES in this element GLOBALLY.
+  encapsulation: ViewEncapsulation.None
 })
 export class ElementComponent {
 
