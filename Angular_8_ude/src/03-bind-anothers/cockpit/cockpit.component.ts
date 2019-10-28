@@ -15,17 +15,23 @@ export class CockpitComponent {
 
   // <app-cockpit (serverCreated)="onServerAdded($event)"
   // AppComponent.onServerAdded(serverData: { serverName: string, serverContent: string }) { ...
-  @Output() serverCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
-  @Output() blueprintCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
+  @Output() serverCreatedEvent = new EventEmitter<{ serverName: string, serverContent: string }>();
+  @Output() blueprintCreatedEvent = new EventEmitter<{ serverName: string, serverContent: string }>();
 
   newServerName = '';
   newServerContent = '';
 
   onAddServer() {
-    this.serverCreated.emit({ serverName: this.newServerName, serverContent: this.newServerContent });
+    this.serverCreatedEvent.emit({
+      serverName: this.newServerName,
+      serverContent: this.newServerContent
+    });
   }
 
   onAddBlueprint() {
-    this.blueprintCreated.emit({ serverName: this.newServerName, serverContent: this.newServerContent });
+    this.blueprintCreatedEvent.emit({
+      serverName: this.newServerName,
+      serverContent: this.newServerContent
+    });
   }
 }

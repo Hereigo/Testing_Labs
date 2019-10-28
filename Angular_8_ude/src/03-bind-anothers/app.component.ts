@@ -2,8 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <!-- CockpitCompon. @Output() serverCreatedEvent = new EventEmitter<{ serverName: string, serverContent: string }>(); -->
+    <app-cockpit (serverCreatedEvent)="onServerAdded($event)" (blueprintCreatedEvent)="onBlueprintAdded($event)"></app-cockpit>
+    <hr />
+    <!-- Bind AppComponent.serverElements[i] to ServerElementComponent.Input('elementAlias') element-property -->
+    <app-server-element *ngFor="let serverElement of serverElements" [elementAlias]="serverElement"></app-server-element>`
 })
 export class AppComponent {
 
