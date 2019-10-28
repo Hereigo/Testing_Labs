@@ -1,11 +1,19 @@
 <div class="container">
 
-    <app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
+    <div class="row">
+        <div class="col-xs-12">
 
+            <!-- CockpitCompon. @Output() serverCreated = new EventEmitter<{ serverName: string, serverContent: string }>(); -->
+            <app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBlueprintAdded($event)">
+            </app-cockpit>
+
+        </div>
+    </div>
     <hr>
     <div class="row">
         <div class="col-xs-12">
 
+            <!-- Bind AppComponent.serverElements[i] to ServerElementComponent.Input('elementAlias') element-property -->
             <app-server-element *ngFor="let serverElement of serverElements" [elementAlias]="serverElement">
             </app-server-element>
 

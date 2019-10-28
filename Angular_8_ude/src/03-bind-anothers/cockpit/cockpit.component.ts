@@ -1,10 +1,15 @@
-import { Component, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
-  templateUrl: './cockpit.component.html',
-  styleUrls: ['./cockpit.component.css']
+  template: `
+    <label>Server Name</label>
+    <input type="text" class="form-control" [(ngModel)]="newServerName">
+    	<label>Server Content</label>
+    	<input type="text" class="form-control" [(ngModel)]="newServerContent">
+    		<br/>
+    		<button class="btn btn-primary" (click)="onAddServer()">Add Server</button>&nbsp;
+    		<button class="btn btn-primary" (click)="onAddBlueprint()">Add Server Blueprint</button>`
 })
 export class CockpitComponent {
 
@@ -16,20 +21,11 @@ export class CockpitComponent {
   newServerName = '';
   newServerContent = '';
 
-  constructor() { }
-
   onAddServer() {
-    this.serverCreated.emit({
-      serverName: this.newServerName,
-      serverContent: this.newServerContent
-    });
+    this.serverCreated.emit({ serverName: this.newServerName, serverContent: this.newServerContent });
   }
 
   onAddBlueprint() {
-    // this.serverElements.push({
-    //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+    this.blueprintCreated.emit({ serverName: this.newServerName, serverContent: this.newServerContent });
   }
 }
