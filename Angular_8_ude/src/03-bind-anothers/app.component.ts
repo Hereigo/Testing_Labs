@@ -3,29 +3,32 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <!-- CockpitCompon. @Output() serverCreatedEvent = new EventEmitter<{ serverName: string, serverContent: string }>(); -->
-    <app-cockpit (serverCreatedEvent)="onServerAdded($event)" (blueprintCreatedEvent)="onBlueprintAdded($event)"></app-cockpit>
-    <hr />
-    <!-- Bind AppComponent.serverElements[i] to ServerElementComponent.Input('elementAlias') element-property -->
-    <app-server-element *ngFor="let serverElement of serverElements" [elementAlias]="serverElement"></app-server-element>`
+    <div style="border:solid 1px red; padding: 10px">
+    	<h4>COCKPIT : (sends its input-data via @Output() EventEmitter<>)</h4>
+      <!-- USE Sub-Components @Output EVENT :
+      CockpitComponent.
+      @Output() elementCreatedEvent = new EventEmitter<{ elementName: string }>(); -->
+
+      <app-cockpit (elementCreatedEvent)="onElementAdded($event)"></app-cockpit>
+      
+      <hr/>
+    	<h4>ELEMENTS : (created by Cockpit and inserted into AppComponent array)</h4>
+    	<!-- INJECT data into Sub-Components @Input PROPERTY (using its Alias) :
+      Bind AppComponent.elementsArray[i] to ElementElementComponent.Input('elementAlias') element-property -->
+      
+      <app-one-element *ngFor="let element of elementsArray" [elementAlias]="element"></app-one-element>`
 })
 export class AppComponent {
 
-  serverElements = [{ type: 'server', name: 'TestServer_1', content: 'Just a test.' }];
+  elementsArray = [{ name: 'First Test Element' }];
 
-  onServerAdded(serverData: { serverName: string, serverContent: string }) {
-    this.serverElements.push({
-      type: 'server',
-      name: serverData.serverName,
-      content: serverData.serverContent
-    });
-  }
+  // USE CockpitComponent @Output EVENT : 
+  // (elementCreatedEvent) creates new ElementComponent.element & sends it to onElementAdded($event)
+  // <app-cockpit (elementCreatedEvent)="onElementAdded($event)"
 
-  onBlueprintAdded(blueprintData: { serverName: string, serverContent: string }) {
-    this.serverElements.push({
-      type: 'blueprint',
-      name: blueprintData.serverName,
-      content: blueprintData.serverContent
+  onElementAdded(cockpitElementCreatedEvent: { elementName: string }) {
+    this.elementsArray.push({
+      name: cockpitElementCreatedEvent.elementName
     });
   }
 }
