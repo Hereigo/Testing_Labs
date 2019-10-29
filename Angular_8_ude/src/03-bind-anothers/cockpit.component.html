@@ -1,0 +1,19 @@
+<div class="col-md-4">
+    <label>New Element - by [(ngModel)]</label>
+    <input type="text" class="form-control" [(ngModel)]="htmlInput_NgModel">
+    <button class="btn btn-primary" (click)="onAddElement_NgModel()">Add Element by [(ngModel)]</button>
+</div>
+
+<div class="col-md-4">
+    <label>New El. - by #localReference</label>
+    <input type="text" class="form-control" #htmlInputReferenceAsParam>
+    <button class="btn btn-primary" (click)="onAddElement_LocalRef(htmlInputReferenceAsParam)">Add Element by
+        #localReference</button>
+</div>
+
+<div class="col-md-4">
+    <label>New El. - by #localRef + @ViewChild</label>
+    <input type="text" class="form-control" #htmlInputReferenceForViewChild>
+    <button class="btn btn-primary" (click)="onAddElement_LocRef_ViewCh()">Add Elem by
+        #localRef @ViewChild</button>
+</div>

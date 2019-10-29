@@ -1,34 +1,44 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, ElementRef, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
-  template: `
-    <div class="col-md-6">
-    	<label>New Element Name by [(ngModel)]</label>
-    	<input type="text" class="form-control" [(ngModel)]="cockpitNameInput">
-    		<button class="btn btn-primary" (click)="onAddElement_viaNgModel()">Add Element by [(ngModel)]</button>
-    	</div>
-    	<div class="col-md-6">
-    		<label>New Element Name by #localReference</label>
-    		<input type="text" class="form-control" #cockpitLocalReferencedInput>
-    			<button class="btn btn-primary" (click)="onAddElement_viaLocalRef(cockpitLocalReferencedInput)">Add Element by #localReference</button>
-    		</div>`
+  templateUrl: './cockpit.component.html'
 })
 export class CockpitComponent {
 
-  cockpitNameInput = '';
+  // <app-cockpit (eventEmittedFromCockpit)="onElementAdded($event)">
+  // Call function from Html to emit Event with { elementName: string } inside.
+  @Output() eventEmittedFromCockpit = new EventEmitter<{ elementName: string }>();
 
-  // <app-cockpit (elementCreatedEvent)="onElementAdded($event)">
-  // AppComponent.onElementAdded( cockpitElementCreatedEvent: { elementName: string }) { ...
-  @Output() elementCreatedEvent = new EventEmitter<{ elementName: string }>();
+  // 1.
+  // [(ngModel)]="htmlInput_NgModel" :
+  htmlInput_NgModel = '';
 
-  onAddElement_viaNgModel() {
-    this.elementCreatedEvent.emit({
-      elementName: this.cockpitNameInput
+  onAddElement_NgModel() {
+    this.eventEmittedFromCockpit.emit({
+      elementName: this.htmlInput_NgModel
     });
   }
 
-  onAddElement_viaLocalRef(localReferencedInput: HTMLInputElement) {
-    this.elementCreatedEvent.emit({ elementName: localReferencedInput.value });
+  // 2.
+  // Process HTMLInputElement incoming as parameter.
+  onAddElement_LocalRef(incomingHtmlInput: HTMLInputElement) {
+    this.eventEmittedFromCockpit.emit({ elementName: incomingHtmlInput.value });
+  }
+
+  // 3.
+  // ViewChild by local ref - can be marked as { static: true } == static in this Component class :
+  @ViewChild('htmlInputReferenceForViewChild', { static: false }) serverInputByLocalRef: ElementRef;
+  // @ViewChild(ViewChildComponent) ...
+  // also allowed to get by the FIRST occurence of Component in the APP_COMPONENT.
+
+  onAddElement_LocRef_ViewCh() {
+    // BAD PRACTICE :
+    this.serverInputByLocalRef.nativeElement.value = 'Text has replaced with bad practice.';
+    // Do NOT modify html DOM directly! - Use INTERPOLATION or Property-BINDING.
+
+    this.eventEmittedFromCockpit.emit({
+      elementName: this.serverInputByLocalRef.nativeElement.value
+    });
   }
 }

@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
     	</h4>
     	<!-- USE Sub-Components @Output EVENT :
           CockpitComponent.
-          @Output() elementCreatedEvent = new EventEmitter<{ elementName: string }>(); -->
-    	<app-cockpit (elementCreatedEvent)="onElementAdded($event)"></app-cockpit>
+          @Output() eventEmittedFromCockpit = new EventEmitter<{ elementName: string }>(); -->
+    	<app-cockpit (eventEmittedFromCockpit)="onElementAdded($event)"></app-cockpit>
     	<hr />
     	<h4>ELEMENTS : (created by Cockpit and inserted into AppComponent array)</h4>
     	<!-- INJECT data into Sub-Components @Input PROPERTY (using its Alias) :
@@ -21,8 +21,8 @@ export class AppComponent {
   elementsArray = [{ name: 'First Test Element' }];
 
   // USE CockpitComponent @Output EVENT : 
-  // (elementCreatedEvent) creates new ElementComponent.element & sends it to onElementAdded($event)
-  // <app-cockpit (elementCreatedEvent)="onElementAdded($event)"
+  // (eventEmittedFromCockpit) creates new ElementComponent.element & sends it to onElementAdded($event)
+  // <app-cockpit (eventEmittedFromCockpit)="onElementAdded($event)"
 
   onElementAdded(cockpitElementCreatedEvent: { elementName: string }) {
 
