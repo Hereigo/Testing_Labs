@@ -20,9 +20,4 @@ export class AppComponent {
       name: cockpitElementCreatedEvent.elementName
     });
   }
-
-  onChangeFirst() {
-    console.log('APP-LifeCycle : ngOnInit() call.');
-    this.elementsArray[0].name = 'Changed-Name!';
-  }
 }

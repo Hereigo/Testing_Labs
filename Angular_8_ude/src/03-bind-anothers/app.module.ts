@@ -5,14 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit.component';
 import { ElementComponent } from './one-element.component';
-import { NgContentComponent } from './ng-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CockpitComponent,
-    ElementComponent,
-    NgContentComponent
+    ElementComponent
   ],
   imports: [
     BrowserModule,

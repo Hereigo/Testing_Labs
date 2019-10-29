@@ -1,19 +1,5 @@
 <div>
 
-    <h4>Ng-Content Component :</h4>
-    <!-- To put some CODE INSIDE of <APP-WITH-NG-CONTENT> input-marker ...
-        - Use <NG-CONTENT></NG-CONTENT> in child's Html-Template !-->
-
-    <app-with-ng-content *ngFor="let single of appArrayForNgContent">
-        <b>{{single.name}}, </b>
-    </app-with-ng-content>
-
-    <hr />
-
-    <button class="btn btn-primary" (click)="onChangeFirst()">Change First</button>
-
-    <hr />
-
     <h4>COCKPIT : (sends its input-data via @Output() EventEmitter)</h4>
     <!-- USE Sub-Components @Output EVENT :
         CockpitComponent.
