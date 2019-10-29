@@ -1,0 +1,30 @@
+<div>
+
+    <h4>Ng-Content Component :</h4>
+    <!-- To put some CODE INSIDE of <APP-WITH-NG-CONTENT> input-marker ...
+        - Use <NG-CONTENT></NG-CONTENT> in child's Html-Template !-->
+
+    <app-with-ng-content *ngFor="let single of appArrayForNgContent">
+        <b>{{single.name}}, </b>
+    </app-with-ng-content>
+
+    <hr />
+
+    <button class="btn btn-primary" (click)="onChangeFirst()">Change First</button>
+
+    <hr />
+
+    <h4>COCKPIT : (sends its input-data via @Output() EventEmitter)</h4>
+    <!-- USE Sub-Components @Output EVENT :
+        CockpitComponent.
+        @Output() eventEmittedFromCockpit = new EventEmitter<{ elementName: string }>(); -->
+    <app-cockpit (eventEmittedFromCockpit)="onElementAdded($event)"></app-cockpit>
+
+    <hr />
+
+    <h4>ELEMENTS : (created by Cockpit and inserted into AppComponent array)</h4>
+    <!-- INJECT data into Sub-Components @Input PROPERTY (using its Alias) :
+        Bind AppComponent.elementsArray[i] to ElementElementComponent.Input('elementAlias') element-property -->
+    <app-one-element *ngFor="let element of elementsArray" [elementAlias]="element"></app-one-element>
+
+</div>

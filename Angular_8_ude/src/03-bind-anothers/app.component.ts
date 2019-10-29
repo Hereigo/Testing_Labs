@@ -2,21 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div>
-    	<h4>COCKPIT : (sends its input-data via @Output() EventEmitter<>)
-    	</h4>
-    	<!-- USE Sub-Components @Output EVENT :
-          CockpitComponent.
-          @Output() eventEmittedFromCockpit = new EventEmitter<{ elementName: string }>(); -->
-    	<app-cockpit (eventEmittedFromCockpit)="onElementAdded($event)"></app-cockpit>
-    	<hr />
-    	<h4>ELEMENTS : (created by Cockpit and inserted into AppComponent array)</h4>
-    	<!-- INJECT data into Sub-Components @Input PROPERTY (using its Alias) :
-          Bind AppComponent.elementsArray[i] to ElementElementComponent.Input('elementAlias') element-property -->
-    	<app-one-element *ngFor="let element of elementsArray" [elementAlias]="element"></app-one-element>`
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
+
+  appArrayForNgContent = [{ name: 'Anna' }, { name: 'Janna' }, { name: 'Marianna' }];
 
   elementsArray = [{ name: 'First Test Element' }];
 
@@ -29,5 +19,10 @@ export class AppComponent {
     this.elementsArray.push({
       name: cockpitElementCreatedEvent.elementName
     });
+  }
+
+  onChangeFirst() {
+    console.log('APP-LifeCycle : ngOnInit() call.');
+    this.elementsArray[0].name = 'Changed-Name!';
   }
 }
