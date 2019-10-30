@@ -1,28 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
-    <div>
+    <div style="margin-left: -300px;">
     	<h4>Ng-Content Component below:</h4>
-    	<!-- To put some CODE INSIDE of <APP-WITH-NG-CONTENT> input-marker ...
-            - Use <NG-CONTENT></NG-CONTENT>in child's Html-Template !-->
-    	<app-with-ng-content [elementInputToUseInApp]="bindedToElementsInput">
-    		<p>{{bindedToElementsInput}}</p>
-    		<!-- to show this PARAGRAF - <ng-content></ng-content>in child REUIRED !!! -->
+    	<app-with-ng-content *ngFor="let oneElement of appArray" [elementInputOfNgComponent]="oneElement">
+    		<p>{{oneElement}}</p>
+    		<!-- <NG-CONTENT></NG-CONTENT>_ in a child REUIRED to show this paragraf! -->
     	</app-with-ng-content>
     	<hr />
-    	<button class="btn btn-primary" (click)="onChangeBoundElement()">Change Bound Element</button>
-    	<div>`
+    	<button class="btn btn-success" (click)="onAddBoundElement()">Add Element</button>&nbsp;
+    	<button class="btn btn-primary" (click)="onChangeBoundElement()">Change Element</button>&nbsp;
+    	<button class="btn btn-danger" (click)="onDestroyBoundElement()">Destroy Element</button>
+    </div>`
 })
 export class AppComponent {
 
-  bindedToElementsInput: string = 'before onChangedFirst()';
+  appArray: string[] = [];
+
+  oneElement: string = 'before onChangeBoundElement()';
+
+  onAddBoundElement() {
+    console.log('APP_COMPONENT.AddElement() :');
+    this.appArray.push(this.oneElement);
+  }
 
   onChangeBoundElement() {
+    console.log('APP_COMPONENT.ChangeElement() :');
+    this.appArray[0] = "AFTER onChangeBoundElement()";
+  }
 
-    console.log('APP_Component.onChangeBoundElement() :');
-
-    this.bindedToElementsInput = "AFTER onChangedFirst()";
+  onDestroyBoundElement() {
+    console.log('APP_COMPONENT.DestroyElement() :');
+    this.appArray.splice(0, 1);
   }
 }

@@ -1,34 +1,75 @@
-import { AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-with-ng-content',
   template: `
-    <h3>Sub Component : </h3>
-    <ng-content></ng-content>` // Projecting CONTENT here from PARENT via <app-with-ng-content> tag
+    <div class="panel panel-default" #templPanelRef>
+    	<div class="panel-body">
+    		<ng-content></ng-content>
+    	</div>
+    </div>`
+  // Projecting CONTENT from PARENT via <app-with-ng-content> into <ng-content></ng-content>
 })
-export class NgContentComponent implements OnInit, OnChanges, DoCheck, AfterContentInit {
+export class NgContentComponent implements OnDestroy, OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
 
-  @Input() elementInputToUseInApp: string;
+  // This reference not allowed UNTIL ngAfterViewInit() !
+  @ViewChild('templPanelRef', { static: false }) templateReference: ElementRef;
 
-  constructor() { console.log('Element-LifeCycle : constructor call.'); }
+  @Input() elementInputOfNgComponent: string = 'TEST';
+
+  constructor() { console.log('Comp.LifeCycle : constructor call.'); }
 
   ngOnChanges(simpleChanges: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    console.log('Element-LifeCycle : ngOnChanges() call (see below).');
+    // Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    console.log('Comp.LifeCycle : ngOnChanges() call (see below).');
     console.log(simpleChanges);
+    // console.log(this.templateReference.nativeElement); - ERROR !
   }
 
   ngOnInit(): void {
-    console.log('Element-LifeCycle : ngOnInit() call.');
+    console.log('Comp.LifeCycle : ngOnInit() call.');
+    // console.log(this.templateReference.nativeElement); - ERROR !
   }
 
   ngDoCheck() {
-    console.log('Element-LifeCycle : ngDoCheck() call.');
+    console.log('Comp.LifeCycle : ngDoCheck() call.');
+    // console.log(this.templateReference.nativeElement); - ERROR !
   }
 
   ngAfterContentInit() {
-    console.log('Element-LifeCycle : ngAfterContentInit() call.');
+    console.log('Comp.LifeCycle : ngAfterContentInit() call.');
+    // console.log(this.templateReference.nativeElement); - ERROR !
   }
 
+  ngAfterContentChecked(): void {
+    console.log('Comp.LifeCycle : ngAfterContentChecked() call.');
+    // console.log(this.templateReference.nativeElement); - ERROR !
+  }
+
+  ngAfterViewInit() {
+    console.log('Comp.LifeCycle : ngAfterViewInit() call.');
+    console.log(this.templateReference.nativeElement.textContent + ' (templ.Ref. available!)');
+  }
+
+  ngAfterViewChecked() {
+    console.log('Comp.LifeCycle : ngAfterViewChecked() call.');
+  }
+
+  ngOnDestroy() {
+    console.log('Comp.LifeCycle : ngOnDestroy() call.');
+  }
 }
