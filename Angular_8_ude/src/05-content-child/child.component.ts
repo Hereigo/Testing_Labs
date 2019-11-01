@@ -24,6 +24,8 @@ export class ChildComponent {
     this.isLowerText = !this.isLowerText;
   }
 
+  // <app-child-component> <h4 #appHeaderInsideChildRef ... </app-child-component>
+  
   @ContentChild('appHeaderInsideChildRef', { static: false })
   appHeadInChild: ElementRef;
 
