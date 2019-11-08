@@ -14,13 +14,13 @@ console.log(factorial(5));
 
 // 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + ...
 
-function fibonacci(n) {
-
+function fibonacci(n, s) {
     if (n <= 1) {
+        console.log("n = " + n);
         return n;
     } else {
-        return fibonacci(n - 2) + fibonacci(n - 1);
+        console.log("n = " + n + " " + s);
+        return fibonacci(n - 1, " -1") + fibonacci(n - 2, " -2");
     }
 }
-
-console.log(fibonacci(7));
+console.log("Rezult = " + fibonacci(4))
