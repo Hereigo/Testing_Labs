@@ -8,13 +8,19 @@ import { Component } from '@angular/core';
         		<ul class="nav nav-tabs">
         			<!-- any path has a slash, but only single slash ('/') means HOME-route .... {exact:true} -->
         			<li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        				<a [routerLink]="[ '/' ]">= Home page =</a>
+        				<a [routerLink]="[ '' ]">= Home page =</a>
         			</li>
         			<li role="presentation" routerLinkActive="active">
-        				<a [routerLink]="[ '/pageTwo' ]">= Page Two =</a>
+        				<a [routerLink]="[ '/pageTwo' ]">= Second page =</a>
+        			</li>
+        			<li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        				<a [routerLink]="[ '/item' ]">= Item's page =</a>
         			</li>
         			<li role="presentation" routerLinkActive="active">
-        				<a [routerLink]="[ '/pageThree' ]">= Page Three =</a>
+        				<a [routerLink]="['item', 5]">Goto item 5</a>
+        			</li>
+        			<li role="presentation" routerLinkActive="active">
+        				<a [routerLink]="['item', 7]">Goto item 7</a>
         			</li>
         			<!-- nav bar ended-->
         		</ul>

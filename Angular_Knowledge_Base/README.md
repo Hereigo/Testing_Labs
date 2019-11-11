@@ -20,6 +20,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 2. `npm install --save bootstrap@3`
 
-3. add bootstrap-path into 'styles' in `angular.json`
+3. add bootstrap.min.css path into "styles" in `angular.json`
 
-4. 
