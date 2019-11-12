@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './item/item.component';
-import { SecondPageComponent } from './second-page/second-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'pageTwo', component: SecondPageComponent },
   {
     path: 'item', component: ItemComponent, children:
       [

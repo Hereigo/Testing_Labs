@@ -10,9 +10,6 @@ import { Component } from '@angular/core';
         			<li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         				<a [routerLink]="[ '' ]">= Home page =</a>
         			</li>
-        			<li role="presentation" routerLinkActive="active">
-        				<a [routerLink]="[ '/pageTwo' ]">= Second page =</a>
-        			</li>
         			<li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         				<a [routerLink]="[ '/item' ]">= Item's page =</a>
         			</li>
@@ -21,6 +18,9 @@ import { Component } from '@angular/core';
         			</li>
         			<li role="presentation" routerLinkActive="active">
         				<a [routerLink]="['item', 7]">Goto item 7</a>
+        			</li>
+        			<li role="presentation" routerLinkActive="active">
+        				<a [routerLink]="['item', 7]" [queryParams]="{'param1':true, 'param2': 12345}">Goto 7 (query str)</a>
         			</li>
         			<!-- nav bar ended-->
         		</ul>
