@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace LookingForReferences
 {
@@ -7,31 +6,22 @@ namespace LookingForReferences
     {
         private static void Main()
         {
-            string logFileName = "REFS_LOG_" + DateTime.Now.ToString("yyMMdd_HHmmss") + ".log";
-
-            string filesListToSearch = "filesListToSearch.txt";
-
-            string[] foldersToParse = {
-                @"C:\Users\user\Downloads",
-                @"C:\Users\user\Documents"
-            };
-
-            string[] fileTypesToParse = { ".asp", ".asp_bk", ".aspx", ".js", ".vb", ".htm", ".html", ".ini", ".config", ".ascx", ".asax", ".xml" };
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string logFile = desktop + "\\SEARCH_RESULT_" + DateTime.Now.ToString("yyMMdd_HHmmss") + ".log";
+            string filesListToSearch = desktop + "\\SEARCH_WHAT.txt";
+            string foldersToParseFile = desktop + "\\SEARCH_WHERE.txt";
+            string fileExtensToParse = desktop + "\\SEARCH_IN_FILE_EXTEN.txt";
 
             try
             {
-                Parser.ParseAndLog(foldersToParse, fileTypesToParse, filesListToSearch, logFileName);
-            }
-            catch (UnauthorizedAccessException authEx)
-            {
-                Console.WriteLine("NO ACCESS TO :");
-                Console.WriteLine(authEx.Message);
+                Parser.ParseAndLog(foldersToParseFile, fileExtensToParse, filesListToSearch, logFile);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("ERROR : ");
                 Console.WriteLine(ex);
             }
+
             Console.WriteLine("FINISHED.");
             Console.ReadKey();
         }

@@ -1,66 +1,94 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LookingForReferences
 {
-    static class Parser
+    internal static class Parser
     {
-        public static void ParseAndLog(string[] foldersToParse, string[] fileTypes, string filesListToSearch, string logFileName)
+        public static void ParseAndLog(string foldersToParseFile, string fileExtensToParse, string filesListToSearch, string logFileName)
         {
-            // FILES TO LOOK FOR :
+            // Create Collections of String to proccess :
 
-            List<string> filesCollectToSearch = new List<string>();
+            string[] filesToSearch = TextFileToCollection(filesListToSearch);
+            string[] foldersToParse = TextFileToCollection(foldersToParseFile);
+            string[] fileTypesToParse = TextFileToCollection(fileExtensToParse);
 
-            StreamReader fileToRead = null;
-            using (fileToRead = new StreamReader(filesListToSearch))
+            // Get list of all files with the predefined extension in the selected folders :
+
+            List<string> existedFilesToParse = new List<string>();
+
+            foreach (string folder in foldersToParse)
+            {
+                IEnumerable<string> currentDirFiles = Directory
+                    .GetFiles(folder, "*.*", SearchOption.AllDirectories)
+                    .Where(s => fileTypesToParse.Contains(Path.GetExtension(s).ToLower()));
+
+                existedFilesToParse.AddRange(currentDirFiles);
+            }
+
+            // PARSING :
+
+            List<string> result = new List<string>();
+
+            string previousDir = "";
+            string previousFileName = "";
+
+            foreach (string fileToParse in existedFilesToParse)
+            {
+                // Open every file with predefined extension that is exists :
+
+                using (StreamReader fileStreamToParse = new StreamReader(fileToParse))
+                {
+                    string line;
+                    int lineNumber = 0;
+                    while ((line = fileStreamToParse.ReadLine()) != null)
+                    {
+                        lineNumber++;
+                        foreach (string searchingFile in filesToSearch)
+                        {
+                            // Compare every line of file with every search-pattern :
+
+                            if (line.ToLower().Contains(searchingFile))
+                            {
+                                string currentDir = Path.GetDirectoryName(fileToParse);
+                                if (currentDir != previousDir)
+                                {
+                                    result.Add($"\r\n{currentDir.ToUpper()}\r\n");
+                                    previousDir = currentDir;
+                                }
+
+                                string currentFileName = Path.GetFileName(fileToParse);
+                                if (currentFileName != previousFileName)
+                                {
+                                    result.Add($"{currentFileName.ToUpper()} :");
+                                    previousFileName = currentFileName;
+                                }
+                                result.Add(lineNumber + " : " + line);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            // SAVE REZULT :
+            File.AppendAllLines(logFileName, result);
+        }
+
+        private static string[] TextFileToCollection(string textFile)
+        {
+            List<string> stringsCollection = new List<string>();
+
+            using (StreamReader fileToRead = new StreamReader(textFile))
             {
                 string line;
 
                 while ((line = fileToRead.ReadLine()) != null)
                 {
-                    filesCollectToSearch.Add(line.Trim());
+                    stringsCollection.Add(line.Trim());
                 }
             }
-
-            // FILES WHERE TO LOOK FOR :
-
-            List<string> filesCollectToParse = new List<string>();
-
-            foreach (string folder in foldersToParse)
-            {
-                // Get List of available files with defined extensions :
-                IEnumerable<string> currentDirFiles = Directory.GetFiles(folder, "*.*", SearchOption.AllDirectories)
-                    .Where(s => fileTypes.Contains(Path.GetExtension(s).ToLower()));
-
-                filesCollectToParse.AddRange(currentDirFiles);
-            }
-
-            // PARSING :
-
-            StreamReader fileStreamToParse = null;
-
-            foreach (string fileToParse in filesCollectToParse)
-            {
-                using (fileStreamToParse = new StreamReader(fileToParse))
-                {
-                    string line;
-
-                    while ((line = fileStreamToParse.ReadLine()) != null)
-                    {
-                        // TODO :
-                        // Check IF LINE CONTAINS file name !!!
-
-                        // Write FILE NAME
-                        // may be line number...
-                        // 
-                        File.AppendAllText(logFileName, line);
-                    }
-                }
-            }
+            return stringsCollection.ToArray();
         }
     }
 }
