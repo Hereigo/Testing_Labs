@@ -344,3 +344,4 @@ GIT_IGNORE/Z_MergeRequests_ backend-bridge_files/
 Angular833_Node1016/package-lock.json
 Angular_Child_Components/package-lock.json
 package-lock.json
+/AspNetCoreAuth/wwwroot/lib
