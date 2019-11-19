@@ -10,6 +10,12 @@ import { Component } from '@angular/core';
         			<li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         				<a [routerLink]="[ '' ]">= Home page =</a>
         			</li>
+        			<li role="presentation" routerLinkActive="active">
+        				<a [routerLink]="[ 'routing' ]">= Routes page =</a>
+        			</li>
+        			<li role="presentation" routerLinkActive="active">
+        				<a [routerLink]="[ '' ]">= Another page =</a>
+        			</li>
         			<li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         				<a [routerLink]="[ '/item' ]">= Item's page =</a>
         			</li>

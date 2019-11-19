@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './item/item.component';
+import { RoutingComponent } from './routing/routing.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'routing', component: RoutingComponent },
   {
     path: 'item', component: ItemComponent, children:
       [
