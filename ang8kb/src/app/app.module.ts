@@ -5,10 +5,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { StudentModule } from './student/student.module';
+import { ItemModule } from './routes/item.module';
 
 @NgModule({
-  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -17,8 +16,9 @@ import { StudentModule } from './student/student.module';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    StudentModule,
+    ItemModule,
   ],
-  providers: []
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

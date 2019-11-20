@@ -1,0 +1,37 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <!-- Collapsed nav-bar menu : -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#">Angular 8 Routing Example</a>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+            <!-- Our nav-menu for app-routing routes : -->
+            <ul class="nav navbar-nav">
+
+                <!-- For Home ONLY single slash in the route === [routerLinkActiveOptions]="{exact:true} -->
+                <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="[ '/' ]">[ Home ]</a>
+                </li>
+                <li role="presentation" routerLinkActive="active">
+                    <a [routerLink]="[ '/item' ]">[ Item ]</a>
+                </li>
+                <li role="presentation" routerLinkActive="active">
+                    <a [routerLink]="[ 'unknown' ]">[ Unimplemented ]</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
