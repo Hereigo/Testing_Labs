@@ -3,7 +3,7 @@
     <div class="container">
 
         <div class="navbar-header">
-
+            <!-- Collapsed nav-bar menu : -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                 aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -15,20 +15,30 @@
             <a class="navbar-brand" href="#">Angular 8 Routing Example</a>
 
         </div>
-
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
 
-                <li>
+            <!-- Our nav-menu for app-routing routes : -->
+            <ul class="nav navbar-nav">
+                    <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                            <a [routerLink]="[ '/' ]">Home</a>
+                        </li>
+                        <!--  [routerLinkActiveOptions]="{exact:true} for HOME ONLY because of only single slash in the route -->
+        
+                        <li role="presentation" routerLinkActive="active">
+                            <a [routerLink]="[ '/student' ]">Student</a>
+                        </li>
+        
+                        <li role="presentation" routerLinkActive="active">
+                                <a [routerLink]="[ '/student/list' ]">Students</a>
+                        </li>
+                <!-- <li>
                     <a class="nav-link login-custom" routerLink="/student/list">Students <span
                             class="sr-only">(current)</span></a>
                 </li>
-
                 <li><a class="nav-link register-custom" routerLink="/home">Home</a></li>
-
-                <li><a href="#contact">Contact</a></li>
-
+                <li><a href="#contact">Contact</a></li> -->
             </ul>
+
         </div>
     </div>
 </nav>

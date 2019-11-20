@@ -15,7 +15,7 @@ const routes: Routes = [
                 component: StudentListComponent
             },
             {
-                path: 'detail',
+                path: 'details',
                 component: StudentDetailsComponent
             }
         ]

@@ -1,4 +1,12 @@
-<p>student works!</p>
+<p>= Student Page =</p>
+
+<div>
+        <a [routerLink]="[ '/student' ]">Student home</a>
+ 
+            <a [routerLink]="[ '/student/list' ]">Student's list</a>
+
+            <a [routerLink]="[ '/student/details' ]">Student details</a>
+</div>
 
 <div class="container">
     <router-outlet></router-outlet>
