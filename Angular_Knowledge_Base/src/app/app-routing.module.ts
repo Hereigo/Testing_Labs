@@ -1,29 +1,23 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ItemComponent } from './item/item.component';
-import { RoutingComponent } from './routing/routing.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+
+import { HomeComponent } from "./home/home.component";
+import { ItemComponent } from "./item/item.component";
+import { RouteParamsComponent } from "./route-params/route-params.component";
+import { RoutingComponent } from "./routing/routing.component";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'routing', component: RoutingComponent },
-  {
-    path: 'item', component: ItemComponent, children:
-      [
-        // canActivate - for authority
-        // canLoad - ...
-        // resolve (dictionary) - to check data before onInit Component
-        // loadChildren: () => import('./photos/photos.module').then(x => x.PhotosModule), 
-        //  - lazy loaded route in case of allowed (see more on angular.io)
-      ]
-  },
-  { path: 'item/:id', component: ItemComponent },
-  // { path: '**', component: NotFoundComponent } - to process "NotFoundComponent" cases.
-  { path: '**', redirectTo: '/' }
+  { path: "", component: RoutingComponent },
+  { path: "home", component: HomeComponent },
+  { path: "item", component: ItemComponent },
+  { path: "item/:id", component: ItemComponent },
+  { path: "params", component: RouteParamsComponent },
+  // { path: '**', component: NotFoundComponent } // a way to process "NotFoundComponent" cases.
+  { path: "**", redirectTo: "/" },
 ];
 
 @NgModule({
+  exports: [RouterModule],
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
 })
 export class AppRoutingModule { }
