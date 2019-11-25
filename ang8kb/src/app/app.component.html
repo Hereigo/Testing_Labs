@@ -1,12 +1,54 @@
-<!-- 
-  Shared Header for all pages : 
--->
-<app-header></app-header>
+<h3>= App Component = (see address bar!)</h3>
+<!-- FIXED NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+        <!-- COLLAPSED NAV-BAR MENU : -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">A8</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <!-- For Home ONLY single slash in the route === [routerLinkActiveOptions]="{exact:true} -->
+            <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <a routerLink="/">Home</a>
+            </li>
+            <li role="presentation" routerLinkActive="active">
+                <a routerLink="/contact">Redir.2.test</a>
+            </li>
+            <li role="presentation" routerLinkActive="active">
+                <a routerLink="/fake">FakeRoute</a>
+            </li>
+            <li role="presentation" routerLinkActive="active">
+                <a routerLink="/test">Test</a>
+            </li>
+            <li role="presentation" routerLinkActive="active">
+                <a [routerLink]="['/test', 5]">Test / 5</a>
+            </li>
+            <li role="presentation" routerLinkActive="active">
+                <a [routerLink]="['test', 7]">Test / 7</a>
+            </li>
+            <li role="presentation" routerLinkActive="active">
+                <a [routerLink]="['test', 7]" [queryParams]="{'param1':true, 'param2': 12345}">Test / 7 ? query</a>
+            </li>
+            <li role="presentation" routerLinkActive="active">
+                <a [routerLink]="['test', 7, 'abc']">Test / 7 / abc</a>
+            </li>
+            <li role="presentation" routerLinkActive="active">
+                <a [routerLink]="['test', 7, 'abcd']">.../abcd [Guarded]</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="output">
 
-<div class="container">
-  <div class="jumbotron">
+    <h5>[ router-outlet ] : </h5>
 
     <router-outlet></router-outlet>
 
-  </div>
 </div>

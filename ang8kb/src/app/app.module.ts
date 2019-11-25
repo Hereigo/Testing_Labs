@@ -1,24 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
+import { AbcComponent } from './abc/abc.component';
+import { AbcExitGuard } from './abc/abc.exit.guard';
+import { AbcGuard } from './abc/abc.guard';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app.routing.module';
 import { HomeComponent } from './home/home.component';
-import { ItemModule } from './routes/item.module';
+import { TestComponent } from './routes/test.component';
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
+    AbcComponent,
     AppComponent,
-    HeaderComponent,
     HomeComponent,
+    TestComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    ItemModule,
+    FormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AbcGuard, AbcExitGuard],
 })
 export class AppModule { }
