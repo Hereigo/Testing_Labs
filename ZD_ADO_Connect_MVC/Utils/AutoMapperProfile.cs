@@ -10,9 +10,9 @@ namespace ZdAdoConnectorMvc.Utils
         {
             // Mapping <Source, Destination> :
 
-            // CreateMap<WorkItemCommentVersionRef, CommentVersionRef>();
+            CreateMap<WorkItemCommentVersionRef, CommentVersionRef>();
 
-            CreateMap<WorkItem, AdoWorkItemModel>().ForAllMembers(opt => opt.AllowNull());
+            CreateMap<WorkItem, AdoWorkItem>().ForAllMembers(opt => opt.AllowNull());
         }
     }
 }

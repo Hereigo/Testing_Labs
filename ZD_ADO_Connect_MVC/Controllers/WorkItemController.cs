@@ -1,31 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ZdAdoConnectorMvc.Models;
+using ZdAdoConnectorMvc.Providers;
 
 namespace ZdAdoConnectorMvc.Controllers
 {
     public class WorkItemController : Controller
     {
-        // GET: WorkItem
-        public ActionResult Index()
-        {
-            return View();
-        }
+        private readonly AdoProvider _adoProvider;
 
-        // GET: WorkItem/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        public WorkItemController(AdoProvider adoProvider) => _adoProvider = adoProvider;
 
         // GET: WorkItem/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        public ActionResult Create() => View();
 
         // POST: WorkItem/Create
         [HttpPost]
@@ -44,11 +32,39 @@ namespace ZdAdoConnectorMvc.Controllers
             }
         }
 
+        // GET: WorkItem/Delete/5
+        public ActionResult Delete(int id) => View();
+
+        // POST: WorkItem/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: WorkItem/Details/5
+        public ActionResult Details(int id = 1) // TESTING !!!!!!!
+        {
+            List<AdoWorkItem> adoWorkItems = _adoProvider.GetWorkItems(new int[] { id });
+
+            AdoWorkItem adoWorkItem = adoWorkItems.ToArray()[0];
+
+            return View(adoWorkItem);
+        }
+
         // GET: WorkItem/Edit/5
         public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        => View();
 
         // POST: WorkItem/Edit/5
         [HttpPost]
@@ -67,27 +83,7 @@ namespace ZdAdoConnectorMvc.Controllers
             }
         }
 
-        // GET: WorkItem/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: WorkItem/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        // GET: WorkItem
+        public ActionResult Index() => View();
     }
 }

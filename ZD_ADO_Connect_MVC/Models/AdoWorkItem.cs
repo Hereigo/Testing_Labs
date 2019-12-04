@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ZdAdoConnectorMvc.Models
 {
-    public class AdoWorkItemModel
+    public class AdoWorkItem
     {
         public long Id { get; set; }
         public long Rev { get; set; }

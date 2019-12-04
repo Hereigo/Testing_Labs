@@ -18,11 +18,11 @@ namespace ZdAdoConnectorMvc.Providers
             _mapper = mapper;
         }
 
-        public List<AdoWorkItemModel> GetWorkItems(int[] workItemsIds)
+        public List<AdoWorkItem> GetWorkItems(int[] workItemsIds)
         {
             Task<List<WorkItem>> response = _adoService.GetWorkItemsAsync(workItemsIds);
 
-            List<AdoWorkItemModel> adoWorkItems = new List<AdoWorkItemModel>();
+            List<AdoWorkItem> adoWorkItems = new List<AdoWorkItem>();
 
             List<WorkItem> workItems = response.Result;
 
@@ -30,7 +30,9 @@ namespace ZdAdoConnectorMvc.Providers
             {
                 foreach (WorkItem item in workItems)
                 {
-                    adoWorkItems.Add(_mapper.Map<AdoWorkItemModel>(item));
+                    var TEST = _mapper.Map<AdoWorkItem>(item);
+
+                    adoWorkItems.Add(TEST);
                 }
             }
 
