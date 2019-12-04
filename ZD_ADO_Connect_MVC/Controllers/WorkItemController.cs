@@ -63,8 +63,7 @@ namespace ZdAdoConnectorMvc.Controllers
         }
 
         // GET: WorkItem/Edit/5
-        public ActionResult Edit(int id)
-        => View();
+        public ActionResult Edit(int id) => View();
 
         // POST: WorkItem/Edit/5
         [HttpPost]

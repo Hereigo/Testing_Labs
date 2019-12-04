@@ -22,7 +22,6 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Rev)
         </dd>
-
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CommentVersionRef.Text)
         </dt>
@@ -36,19 +35,23 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Url)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Links)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Links)
+        </dd>
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Fields["System.AreaPath"])
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Fields["System.AreaPath"])
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Fields["System.Title"])
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Fields["System.Title"])
-        </dd>
+        @foreach (var item in Model.Fields)
+        {
+            <dt class="col-sm-2">
+                [@Html.DisplayNameFor(model => model.Fields[item.Key])
+            </dt>
+            <dd class="col-sm-10">
+                @item.Value
+            </dd>
+        }
+
     </dl>
 </div>
 <div>
