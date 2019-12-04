@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ZdAdoConnectorMvc.Services
 {
@@ -9,37 +10,7 @@ namespace ZdAdoConnectorMvc.Services
     {
         // GET PROJECTS LIST FOR MY-TEST ONLY ! NOT WORK FOR PROD ...
 
-        public static async void GetProjects()
-        {
-            try
-            {
-                // WORK in CORE 3.0 :
-
-                //using HttpClient client = new HttpClient();
-                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
-                //Convert.ToBase64String(
-                //    System.Text.ASCIIEncoding.ASCII.GetBytes(
-                //        string.Format("{0}:{1}", "", GIT_IGNORE.Variables.AdoPat))));
-
-                //// PROJECTS :
-
-                //using HttpResponseMessage response = await client.GetAsync(GIT_IGNORE.Variables.AdoUri__TEST__ + "/_apis/projects?api-version=5.1");
-
-                //response.EnsureSuccessStatusCode();
-
-                //string responseBody = await response.Content.ReadAsStringAsync();
-
-                //Console.WriteLine(responseBody);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-
-        internal static async void GetProjects_OLD()
+        public static async Task<string> GetProjects()
         {
             try
             {
@@ -48,26 +19,22 @@ namespace ZdAdoConnectorMvc.Services
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
-                    Convert.ToBase64String(
-                        Encoding.ASCII.GetBytes(
-                            string.Format("{0}:{1}", "", GIT_IGNORE.Variables.AdoPat))));
+                    Convert.ToBase64String(Encoding.ASCII.GetBytes(
+                        string.Format("{0}:{1}", "", GIT_IGNORE.Variables.AdoPatHotmail))));
 
-                    using (HttpResponseMessage response = await client.GetAsync(GIT_IGNORE.Variables.AdoUri__TEST__ + "_apis/projects?api-version=5.1"))
+                    using (HttpResponseMessage response = await client.GetAsync(GIT_IGNORE.Variables.AdoNsHotmail +
+                        "/_apis/projects?api-version=5.1").ConfigureAwait(false))
                     {
                         response.EnsureSuccessStatusCode();
 
-                        string responseBody = await response.Content.ReadAsStringAsync();
-
-                        Console.WriteLine(responseBody);
+                        return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.ToString());
+                throw;
             }
         }
-
-
     }
 }
