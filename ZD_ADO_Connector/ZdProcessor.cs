@@ -34,7 +34,7 @@ namespace ZD_ADO_Connector
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, _apiRequest);
             request.Headers.Add("Accept", "application/json");
-            request.Headers.Authorization = new AuthenticationHeaderValue("Basic", GIT_IGNORE.Variables.ZdMagicWord);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Basic", GIT_IGNORE.Variables.AdoMagicWord3);
             //request.Content = new StringContent(jsonToSend, System.Text.Encoding.UTF8, "application/json");
 
             using HttpClient client = new HttpClient();

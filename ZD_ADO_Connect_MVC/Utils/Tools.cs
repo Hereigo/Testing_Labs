@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace ZD_ADO_Connector
+namespace ZdAdoConnectorMvc.Utils
 {
     internal static class Tools
     {

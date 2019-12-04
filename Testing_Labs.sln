@@ -206,7 +206,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LookingForReferences", "Loo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreAuth", "AspNetCoreAuth\AspNetCoreAuth.csproj", "{9752098E-2648-411C-BF0F-FF8E138EC1EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZD_ADO_Connector", "ZD_ADO_Connector\ZD_ADO_Connector.csproj", "{092F07D8-D800-4BC4-AC9E-41BBD3160B91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZD_ADO_Connector", "ZD_ADO_Connector\ZD_ADO_Connector.csproj", "{092F07D8-D800-4BC4-AC9E-41BBD3160B91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZdAdoConnectorMvc", "ZD_ADO_Connect_MVC\ZdAdoConnectorMvc.csproj", "{86A82477-872A-4D96-8794-61A78E040806}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -354,6 +356,10 @@ Global
 		{092F07D8-D800-4BC4-AC9E-41BBD3160B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{092F07D8-D800-4BC4-AC9E-41BBD3160B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{092F07D8-D800-4BC4-AC9E-41BBD3160B91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A82477-872A-4D96-8794-61A78E040806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A82477-872A-4D96-8794-61A78E040806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A82477-872A-4D96-8794-61A78E040806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A82477-872A-4D96-8794-61A78E040806}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

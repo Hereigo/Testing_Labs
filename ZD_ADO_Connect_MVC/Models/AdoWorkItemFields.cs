@@ -1,6 +1,6 @@
-﻿namespace ZD_ADO_Connector
+﻿namespace ZdAdoConnectorMvc.Models
 {
-    internal class WorkItemFields
+    internal class AdoWorkItemFields
     {
         readonly string[] fields = {
             "Accepted By",

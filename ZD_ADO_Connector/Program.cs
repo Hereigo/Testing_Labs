@@ -8,9 +8,6 @@ namespace ZD_ADO_Connector
         {
             try
             {
-                AdoProcessor adoProcessor = new AdoProcessor();
-                // adoProcessor.CreateIssueUsingClientLib();
-                // adoProcessor.UpdateWorkItemAsyncUsingClientLib(0);
 
                 ZdProcessor zdProcessor = new ZdProcessor();
                 // zdProcessor.ZendeskApiClient();
@@ -22,5 +19,7 @@ namespace ZD_ADO_Connector
             Console.WriteLine("\r\n Finished.");
             Console.ReadKey();
         }
+
+
     }
 }

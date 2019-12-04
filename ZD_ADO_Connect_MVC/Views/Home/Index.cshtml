@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h3>Your Projects :</h3>
+
+
+
+    <form asp-controller="Home" asp-action="GetWorkItems" method="post">
+
+        <input type="submit" value="Press me!" class="btn btn-primary" />
+
+    </form>
+
+
+</div>

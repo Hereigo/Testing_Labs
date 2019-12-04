@@ -1,4 +1,4 @@
-﻿namespace ZD_ADO_Connector
+﻿namespace ZdAdoConnectorMvc.Utils
 {
     internal static class Strings
     {
