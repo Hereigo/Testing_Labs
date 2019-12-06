@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "my-first-extension",
     "publisher": "AndrewDotNetDev",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "My First Extension",
     "description": "A sample Visual Studio Services extension",
     "public": false,
@@ -31,7 +31,7 @@
             "addressable": true
         },
         {
-            "path": "node_modules/vss-web-extension-sdk/lib",
+            "path": "../node_modules/vss-web-extension-sdk/lib",
             "addressable": true,
             "packagePath": "lib"
         }

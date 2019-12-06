@@ -336,7 +336,7 @@ ASALocalRun/
 # - */wwwroot/lib - is ignored for ALL PROJECTS !!!
 Angular833_Node1016/package-lock.json
 Angular_Child_Components/package-lock.json
-AzureDevOpsExtension/*.vsix
+AzureDevOpsExtension/*/*.vsix
 Core21_PubSubClient/_GIT_IGNORE_.cs
 Cross_Site_Request_Forgery/Content
 Cross_Site_Request_Forgery/Scripts
