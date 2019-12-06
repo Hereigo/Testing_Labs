@@ -6,7 +6,6 @@ let overridenVar = "Hello 1";
 let hasCloneInside = "Hello 2";
 
 let FuncForLet = function() {
-
     let insideFunction = "Hello 3";
 
     console.log(overridenVar); // 'Hello 1'
@@ -22,30 +21,17 @@ console.log(hasCloneInside); // 'Hello 2'
 // console.log(insideFunction); // ReferenceError: 'insideFunction' is not defined
 
 console.log();
-console.log(" = = =  IIFE (Immediately Invoked Func. Expr.) : = = =  ");
 
-var card;
+// =============================================
 
-let iife = (function() {
-    card = 123;
-    console.log('IIFE running!');
-    return {};
-})();
+let dataUser = { name: "Robin" };
 
-console.log(card); // 123
+function newUser(dataUser) {
+    // LET dataUser is in LOCAL scope !
+    dataUser = { name: "Kate" };
+    console.log(dataUser.name); // Kate
+}
 
-console.log();
-console.log(" = = = = CLOSURES : = = = = ");
+newUser(dataUser);
 
-let app = (function() {
-
-    let id = 12345;
-    let getId = function() {
-        return id;
-    };
-    // (app.property): (value) function() => number
-    return { getId: getId };
-    // return { getId }; - is the same.
-})();
-
-console.log(app.getId());
+console.log(dataUser.name); // Robin

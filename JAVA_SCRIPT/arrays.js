@@ -33,3 +33,15 @@ let myString = 'Aut amat aut odit mulier, nil est tertium';
 let splittedArray = myString.split(' ', 5);
 
 console.log(splittedArray); // [ 'Aut', 'amat', 'aut', 'odit', 'mulier,' ]
+
+// SPREAD [...arr2] :
+
+let arr1 = [1, 2, 3, 4];
+let arr2 = [...arr1]; // spread (insert).
+let arr3 = arr1; // reference created.
+
+arr1[0] = 8;
+
+console.log(arr1); // [ 8, 2, 3, 4 ]
+console.log(arr2); // [ 1, 2, 3, 4 ]
+console.log(arr3); // [ 8, 2, 3, 4 ]

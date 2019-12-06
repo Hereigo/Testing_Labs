@@ -16,7 +16,7 @@ https://docs.microsoft.com/en-us/azure/devops/extend/get-started/node?view=azure
 
 7. Define Publisher ID in `vss-extension.json`.
 
-8. `tfx extension create` - to package Extension into `Publisher.Extension-1.0.0.vsix` file.
+8. `tfx extension create` - to Pack an Extension into `Publisher.Extension-1.0.0.vsix` file.
 
 9. Publish on [Marketplace management portal](https://aka.ms/vsmarketplace-manage) via + New Extension -> Azure DevOps.
 

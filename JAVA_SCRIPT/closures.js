@@ -28,3 +28,19 @@ function multiplier(factor) {
 let twice = multiplier(2);
 
 console.log(twice(5)); // 10
+
+console.log();
+console.log('=============== PART III ====================== ');
+
+let app = (function() {
+
+    let id = 12345;
+    let getId = function() {
+        return id;
+    };
+    // (app.property): (value) function() => number
+    return { getId: getId };
+    // return { getId }; - is the same.
+})();
+
+console.log(app.getId());

@@ -1,5 +1,4 @@
 {
-    "baseUri": "https://localhost:44300",
     "manifestVersion": 1,
     "id": "my-first-extension",
     "publisher": "AndrewDotNetDev",

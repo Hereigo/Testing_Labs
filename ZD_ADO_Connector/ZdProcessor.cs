@@ -13,8 +13,8 @@ namespace ZD_ADO_Connector
         {
             // 1. GET ZD-TICKETS CREATED NOT MORE THAN ... ( 1 HOUR AGO )
 
-            // Add 5 hours for the difference of Time Zones  &  to See the hour IN PAST;
-            DateTime notEarlierThan = DateTime.Now.AddHours(-42).AddMinutes(4); // 25 17:00
+            // Add 5 hours for the difference of Time Zones :
+            DateTime notEarlierThan = DateTime.Now.AddHours(-5);
 
             string requestByTime = $"{GIT_IGNORE.Variables.ZdApiRootPath}?page=0&query=type:ticket status:open created>{notEarlierThan.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
 

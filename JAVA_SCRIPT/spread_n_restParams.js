@@ -1,5 +1,3 @@
-import '../styles/index.scss';
-
 console.log(' = = =  SPREAD SYNTAX & REST PARAMETERS : = = =  ');
 
 function restParams(day, ...allCarIds) {
