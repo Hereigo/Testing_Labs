@@ -71,7 +71,7 @@ namespace Core_MVC_DataTables
                 .AddMvc()
                 .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
-            services.AddAutoMapper(options => options.AddProfile<MappingProfile>());
+            services.AddAutoMapper(typeof(MappingProfile));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
