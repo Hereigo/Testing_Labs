@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Work item form group sample</title>
+    <style>
+        #aaa-test{
+            font-size: larger;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body style="overflow:auto;">
+    <script src="bower_components/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+    <script>
+
+        // Sets up the initial HANDSHAKE WITH THE HOST FRAME :
+        VSS.init({
+            // OUR EXTENSION explicitly NOTIFIES THE HOST when we're done loading
+            explicitNotifyLoaded: true,
+            // We are using some Azure DevOps Services APIs, so we need THE MODULE LOADER TO LOAD THEM IN
+            // usePlatformStyles: true       
+            usePlatformScripts: true
+        });
+
+        VSS.require(["TFS/WorkItemTracking/Services"], function (_WorkItemServices) {
+
+            // WorkItemFormService - allows you TO USE FIELDS/LINKS of the currently displayed WI :
+            function getWorkItemFormService() {
+                return _WorkItemServices.WorkItemFormService.getService();
+            }
+
+            // REGISTER A LISTENER for the work item GROUP CONTRIBUTION :
+            VSS.register(VSS.getContribution().id, function () {
+
+                return {
+
+                    onFieldChanged: function (args) {
+                        $(".events").append($("<div/>").text("onFieldChanged - " + JSON.stringify(args)));
+                    },
+
+                    onLoaded: function (args) {
+                        getWorkItemFormService().then(function (service) {
+                            service.getFieldValues(["System.Id", "System.Title", "System.State", "System.CreatedDate"]).then(
+                                function (value) {
+                                    // $(".events").append($("<div/>").text("onLoaded - " + JSON.stringify(value)));
+                                    $(".events").append($("<div id='aaa-test'> onLoaded - " + JSON.stringify(value) + "<div/>"));
+                                });
+                        });
+                    },
+
+                    onUnloaded: function (args) {
+                        $(".events").empty();
+                        $(".events").append($("<div/>").text("onUnloaded - " + JSON.stringify(args)));
+                    },
+
+                    onSaved: function (args) {
+                        $(".events").append($("<div/>").text("onSaved - " + JSON.stringify(args)));
+                    },
+
+                    onReset: function (args) {
+                        $(".events").append($("<div/>").text("onReset - " + JSON.stringify(args)));
+                    },
+
+                    onRefreshed: function (args) {
+                        $(".events").append($("<div/>").text("onRefreshed - " + JSON.stringify(args)));
+                    }
+                }
+            });
+
+            VSS.notifyLoadSucceeded();
+
+            // REGISTER A HANDLER for the 'Click me!' button :
+            $("#clickme").click(function () {
+                getWorkItemFormService().then(function (service) {
+                    service.setFieldValue("System.Title", "Title set from your group extension!");
+                });
+            });
+        });
+
+    </script>
+
+    <p> Hello, your work item group contribution is now active! </p>
+
+    <button type="button" id="clickme">Click me!</button>
+
+    <div class='events'> </div>
+
+</body>
+
+</html>

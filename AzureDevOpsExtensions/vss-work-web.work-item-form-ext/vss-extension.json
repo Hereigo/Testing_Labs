@@ -1,0 +1,39 @@
+{
+    "manifestVersion": 1,
+    "id": "my-work-item-form-extension",
+    "publisher": "AndrewDotNetDev",
+    "version": "1.0.3",
+    "name": "My Work Item Form Extension",
+    "description": "A sample Visual Studio Services extension",
+    "public": false,
+    "categories": ["Azure Repos"],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "contributions": [
+        {  
+            "id": "sample-work-item-form-observer",
+            "type": "ms.vss-work-web.work-item-notifications",
+            "description": "Gets events about the current work item form for the 'Try Me!' toolbar button",
+            "targets": [
+                "ms.vss-work-web.work-item-form"
+            ],
+            "properties": {
+                "uri": "myformobserver.html"
+            }
+        }
+     ],
+    "files": [
+        {
+            "path": "myformobserver.html",
+            "addressable": true
+        },
+        {
+            "path": "../node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        }
+    ]
+}
