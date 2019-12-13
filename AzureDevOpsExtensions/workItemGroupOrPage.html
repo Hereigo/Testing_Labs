@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Work item form group sample</title>
     <style>
-        #aaa-test{
+        #aaa-test {
             font-size: larger;
             color: blue;
         }
@@ -13,7 +13,9 @@
 </head>
 
 <body style="overflow:auto;">
-    <script src="bower_components/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+
+    <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+
     <script>
 
         // Sets up the initial HANDSHAKE WITH THE HOST FRAME :
@@ -45,8 +47,10 @@
                         getWorkItemFormService().then(function (service) {
                             service.getFieldValues(["System.Id", "System.Title", "System.State", "System.CreatedDate"]).then(
                                 function (value) {
-                                    // $(".events").append($("<div/>").text("onLoaded - " + JSON.stringify(value)));
-                                    $(".events").append($("<div id='aaa-test'> onLoaded - " + JSON.stringify(value) + "<div/>"));
+                                    $(".events").append($("<div id='aaa-test'/>").text("onLoaded - " + JSON.stringify(value)));
+                                },
+                                function (error) {
+                                    window.alert(error.message);
                                 });
                         });
                     },

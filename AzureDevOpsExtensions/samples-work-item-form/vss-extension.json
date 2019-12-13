@@ -1,8 +1,8 @@
 {
     "manifestVersion": 1.0,
     "id": "samples-work-item-form",
-    "version": "0.1.7",
-    "name": "Work Item Form Sample",
+    "version": "0.0.1",
+    "name": "Andy Work Item Form Sample",
     "description": "Explore how to extend the work item form with new sections, actions, and more.",
     "public": false,
     "publisher": "AndrewDotNetDev",
@@ -13,7 +13,7 @@
         "Sample"
     ],
     "categories": [
-        "Azure Repos"
+        "Azure Repos","Azure Boards"
     ],
     "targets": [
         {
@@ -32,25 +32,25 @@
         {
             "path": "workItemGroup.html",
             "addressable": true
-        }, 
+        },
         {
             "path": "workItemPage.html",
             "addressable": true
-        }, 
+        },
         {
             "path": "workItemService.html",
             "addressable": true
-        },        
+        },
         {
             "path": "workItemToolbarButton.html",
             "addressable": true
-        },   
+        },
         {
             "path": "workItemNotifications.html",
             "addressable": true
         },
         {
-            "path": "bower_components/vss-web-extension-sdk/lib/VSS.SDK.min.js",
+            "path": "node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js",
             "addressable": true
         }
     ],

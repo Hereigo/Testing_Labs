@@ -7,37 +7,36 @@
 </head>
 
 <body>
-    <script src="bower_components/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
-    
+
+    <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+
     <script>
         var changedFieldCount = [];
         var changedFields = [];
-
         VSS.init({
             explicitNotifyLoaded: true,
             usePlatformScripts: true
         });
-        
+
         // Register a listener for the menu item contribution
         VSS.register("Fabrikam.samples-work-item-form.sample-work-item-menu", function (context) {
             return {
                 // Called when the menu item is clicked.
-                execute: function(actionContext) {
+                execute: function (actionContext) {
                     window.alert("Total fields changed: " + changedFieldCount[actionContext.workItemId]);
                 }
             }
         });
-
         VSS.register("Fabrikam.samples-work-item-form.sample-work-item-form-observer", function (context) {
-            return {    
+            return {
                 // event handlers, called when the active work item is loaded/unloaded/modified/saved
                 onFieldChanged: function (args) {
                     if (!changedFields[args.id]) {
                         changedFields[args.id] = [];
                         changedFieldCount[args.id] = 0;
                     }
-                    
-                    $.each(args.changedFields, function(key, value) {
+
+                    $.each(args.changedFields, function (key, value) {
                         if (!changedFields[args.id][key]) {
                             changedFields[args.id][key] = value;
                             changedFieldCount[args.id]++;
@@ -62,8 +61,8 @@
                 }
             };
         });
-
         VSS.notifyLoadSucceeded();
     </script>
 </body>
+
 </html>
