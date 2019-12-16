@@ -1,6 +1,6 @@
 {
     "manifestVersion": 1.0,
-    "id": "samples-work-item-form",
+    "id": "andy-work-item-form",
     "version": "0.0.1",
     "name": "Andy Work Item Form Sample",
     "description": "Explore how to extend the work item form with new sections, actions, and more.",
@@ -13,7 +13,8 @@
         "Sample"
     ],
     "categories": [
-        "Azure Repos","Azure Boards"
+        "Azure Boards",
+        "Azure Repos"
     ],
     "targets": [
         {
@@ -113,7 +114,7 @@
                 "ms.vss-work-web.work-item-form"
             ],
             "properties": {
-                "name": "My Page",
+                "name": "Andy Page 2",
                 "uri": "workItemPage.html"
             }
         },

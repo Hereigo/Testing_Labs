@@ -3,13 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Work item form group sample</title>
-    <style>
-        #aaa-test {
-            font-size: larger;
-            color: blue;
-        }
-    </style>
+    <title>Work item form page sample</title>
 </head>
 
 <body style="overflow:auto;">
@@ -17,37 +11,32 @@
     <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
 
     <script>
-
-        // Sets up the initial HANDSHAKE WITH THE HOST FRAME :
         VSS.init({
-            // OUR EXTENSION explicitly NOTIFIES THE HOST when we're done loading
             explicitNotifyLoaded: true,
-            // We are using some Azure DevOps Services APIs, so we need THE MODULE LOADER TO LOAD THEM IN
-            // usePlatformStyles: true       
             usePlatformScripts: true
         });
-
         VSS.require(["TFS/WorkItemTracking/Services"], function (_WorkItemServices) {
-
-            // WorkItemFormService - allows you TO USE FIELDS/LINKS of the currently displayed WI :
+            // Get the WorkItemFormService.  This service allows you to get/set fields/links on the 'active' work item (the work item
+            // that currently is displayed in the UI).
             function getWorkItemFormService() {
                 return _WorkItemServices.WorkItemFormService.getService();
             }
-
-            // REGISTER A LISTENER for the work item GROUP CONTRIBUTION :
+            // Register a listener for the work item page contribution
             VSS.register(VSS.getContribution().id, function () {
-
                 return {
-
+                    // Called when the active work item is modified
                     onFieldChanged: function (args) {
                         $(".events").append($("<div/>").text("onFieldChanged - " + JSON.stringify(args)));
                     },
 
+                    // Called when a new work item is being loaded in the UI
                     onLoaded: function (args) {
+
                         getWorkItemFormService().then(function (service) {
+                            // Get the current values for a few of the common fields
                             service.getFieldValues(["System.Id", "System.Title", "System.State", "System.CreatedDate"]).then(
                                 function (value) {
-                                    $(".events").append($("<div id='aaa-test'/>").text("onLoaded - " + JSON.stringify(value)));
+                                    $(".events").append($("<div/>").text("onLoaded - " + JSON.stringify(value)));
                                 },
                                 function (error) {
                                     window.alert(error.message);
@@ -55,41 +44,48 @@
                         });
                     },
 
+                    // Called when the active work item is being unloaded in the UI
                     onUnloaded: function (args) {
                         $(".events").empty();
                         $(".events").append($("<div/>").text("onUnloaded - " + JSON.stringify(args)));
                     },
 
+                    // Called after the work item has been saved
                     onSaved: function (args) {
+
+                        let http_request = new XMLHttpRequest();
+                        http_request.open("POST", "https://hookb.in/XknZRJPamViKnqojMaaq");
+                        //http_request.withCredentials = true;
+                        http_request.setRequestHeader("Content-Type", "application/json");
+                        http_request.send('{"name": "SAVED!"}');
+
+                        console.log('XMLHttpRequest must be sent already.');
+
                         $(".events").append($("<div/>").text("onSaved - " + JSON.stringify(args)));
                     },
 
+                    // Called when the work item is reset to its unmodified state (undo)
                     onReset: function (args) {
                         $(".events").append($("<div/>").text("onReset - " + JSON.stringify(args)));
                     },
 
+                    // Called when the work item has been refreshed from the server
                     onRefreshed: function (args) {
                         $(".events").append($("<div/>").text("onRefreshed - " + JSON.stringify(args)));
                     }
                 }
             });
-
             VSS.notifyLoadSucceeded();
-
-            // REGISTER A HANDLER for the 'Click me!' button :
             $("#clickme").click(function () {
                 getWorkItemFormService().then(function (service) {
-                    service.setFieldValue("System.Title", "Title set from your group extension!");
+                    service.setFieldValue("System.Title", "Title set from extension!")
                 });
             });
         });
-
     </script>
 
-    <p> Hello, your work item group contribution is now active! </p>
-
+    <p> Hello, your work item tab page contribution is now active! </p>
     <button type="button" id="clickme">Click me!</button>
-
     <div class='events'> </div>
 
 </body>
