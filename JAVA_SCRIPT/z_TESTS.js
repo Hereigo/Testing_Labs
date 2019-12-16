@@ -26,6 +26,8 @@ isTruthVal(1);       // is Truth.
 isTruthVal(-1);      // is Truth.
 isTruthVal([]);      // is Truth.
 isTruthVal({});      // is Truth.
+isTruthVal(null == undefined);// is Truth.
+isTruthVal(NaN == NaN);       // is Not Truth.
 
 // ==================================
 
