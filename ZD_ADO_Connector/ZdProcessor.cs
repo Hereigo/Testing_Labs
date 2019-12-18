@@ -33,8 +33,11 @@ namespace ZD_ADO_Connector
             //string requestUri = MagicWords.ZendeskRequestBaseUrl + _apiRequest; // "/api/v2/search.json?query=82385";
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, _apiRequest);
-            request.Headers.Add("Accept", "application/json");
-            request.Headers.Authorization = new AuthenticationHeaderValue("Basic", GIT_IGNORE.Variables.AdoMagicWord3);
+
+            request.Headers.Add("Accept", "application/json");// Generated with https://developer.zendesk.com/requests/new
+
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GIT_IGNORE.Variables.ZDDevConsoleBearerToken);
+
             //request.Content = new StringContent(jsonToSend, System.Text.Encoding.UTF8, "application/json");
 
             using HttpClient client = new HttpClient();
@@ -53,7 +56,7 @@ namespace ZD_ADO_Connector
             {
                 //_logger.LogError(logInformation);
 
-                return string.Empty;
+                return response.StatusCode.ToString();
             }
         }
 

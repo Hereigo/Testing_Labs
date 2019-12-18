@@ -10,7 +10,7 @@ namespace ZD_ADO_Connector
             {
 
                 ZdProcessor zdProcessor = new ZdProcessor();
-                // zdProcessor.ZendeskApiClient();
+                zdProcessor.ZendeskApiClient();
             }
             catch (Exception ex)
             {
