@@ -21,6 +21,7 @@
             function getWorkItemFormService() {
                 return _WorkItemServices.WorkItemFormService.getService();
             }
+
             // Register a listener for the work item page contribution
             VSS.register(VSS.getContribution().id, function () {
                 return {
@@ -54,12 +55,12 @@
                     onSaved: function (args) {
 
                         let http_request = new XMLHttpRequest();
-                        http_request.open("POST", "https://hookb.in/XknZRJPamViKnqojMaaq");
+                        http_request.open("POST", "https://hookb.in/Oe69RpD2J0iMpwV2dLNo");
                         //http_request.withCredentials = true;
                         http_request.setRequestHeader("Content-Type", "application/json");
                         http_request.send('{"name": "SAVED!"}');
 
-                        console.log('XMLHttpRequest must be sent already.');
+                        console.log('XMLHttpRequest must be already sent.');
 
                         $(".events").append($("<div/>").text("onSaved - " + JSON.stringify(args)));
                     },

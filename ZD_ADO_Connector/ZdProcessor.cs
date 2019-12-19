@@ -11,17 +11,26 @@ namespace ZD_ADO_Connector
 
         public void ZendeskApiClient()
         {
-            // 1. GET ZD-TICKETS CREATED NOT MORE THAN ... ( 1 HOUR AGO )
+            const long adoCustomFieldId = 360004572998;
 
+            const string adoTicketsTag = "azure";
+
+            // 1. GET ZD-TICKETS CREATED NOT MORE THAN ... ( X HOURS AGO )
+
+            // string requestByTime = $"{GIT_IGNORE.Variables.ZdApiRootPath}?page=0&query=type:ticket status:open created>{notEarlierThan.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
             // Add 5 hours for the difference of Time Zones :
-            DateTime notEarlierThan = DateTime.Now.AddHours(-5);
+            DateTime notEarlierThan = DateTime.Now.AddHours(-30);
 
-            string requestByTime = $"{GIT_IGNORE.Variables.ZdApiRootPath}?page=0&query=type:ticket status:open created>{notEarlierThan.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
+            // "custom_fields": [{"id": 360004572998, ... (my own created ID)
+            // search possible only by TAG !!!
+            string requestByTime = $"{GIT_IGNORE.Variables.ZdApiRootPath}?page=0&query=type:ticket tags:{adoTicketsTag}";
 
             Task<string> response = RequestSend(requestByTime);
 
             string rez = response.Result;
 
+
+            Console.WriteLine(rez);
             // 2. CHECK  (BY ...) IF ADO NOT CONTAINS THEM YET
 
             // 3. IF NOT - CREATE NEW IN ADO

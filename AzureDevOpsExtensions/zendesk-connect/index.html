@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+
+    <script>
+        // Sets up the initial handshake with the host frame
+        VSS.init({
+            // Our extension explicitly notifies the host when we're done loading
+            explicitNotifyLoaded: true,
+            // We are using some Azure DevOps Services APIs, so we need the module loader to load them in
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+
+
+
+        VSS.notifyLoadSucceeded();
+    </script>
+</body>
+
+</html>

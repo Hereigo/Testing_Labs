@@ -70,7 +70,7 @@
             }
         },
         {
-            "id": "sample-work-item-menu",
+            "id": "sample-work-item-menu-func",
             "type": "ms.vss-web.action",
             "description": "Sample toolbar item which updates the title of a work item",
             "targets": [
@@ -85,7 +85,7 @@
             }
         },
         {
-            "id": "sample-work-item-form-observer",
+            "id": "sample-work-item-form-observer-2",
             "type": "ms.vss-work-web.work-item-notifications",
             "description": "Gets events about the current work item form for the 'Try Me!' toolbar button",
             "targets": [
@@ -114,7 +114,7 @@
                 "ms.vss-work-web.work-item-form"
             ],
             "properties": {
-                "name": "Andy Page 2",
+                "name": "Andy Page v.1",
                 "uri": "workItemPage.html"
             }
         },

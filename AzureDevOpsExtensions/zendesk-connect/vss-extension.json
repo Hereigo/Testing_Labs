@@ -1,0 +1,70 @@
+{
+    "manifestVersion": 1.0,
+    "id": "zendesk-notifier",
+    "version": "0.0.1",
+    "name": "Zendesk Notifier",
+    "description": "Explore how to extend the work item form with new sections, actions, and more.",
+    "public": false,
+    "publisher": "AndrewDotNetDev",
+    "icons": {
+        "default": "images/zd-exten-logo.png"
+    },
+    "tags": [
+        "Sample"
+    ],
+    "categories": [
+        "Azure Boards",
+        "Azure Repos"
+    ],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "scopes": [
+        "vso.work",
+        "vso.work_write"
+    ],
+    "files": [
+        {
+            "path": "images",
+            "addressable": true
+        },
+        {
+            "path": "index.html",
+            "addressable": true
+        },
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js",
+            "addressable": true
+        }
+    ],
+    "contributions": [
+        {
+            "id": "sample-work-item-menu-func",
+            "type": "ms.vss-web.action",
+            "description": "Sample toolbar item which updates the title of a work item",
+            "targets": [
+                "ms.vss-work-web.work-item-context-menu"
+            ],
+            "properties": {
+                "text": "Try me!",
+                "title": "Updates the title of the work item from the extension",
+                "toolbarText": "Try me!",
+                "icon": "images/show-properties.png",
+                "uri": "index.html"
+            }
+        },
+        {
+            "id": "sample-work-item-form-observer-2",
+            "type": "ms.vss-work-web.work-item-notifications",
+            "description": "Gets events about the current work item form for the 'Try Me!' toolbar button",
+            "targets": [
+                "ms.vss-work-web.work-item-form"
+            ],
+            "properties": {
+                "uri": "index.html"
+            }
+        }
+    ]
+}
