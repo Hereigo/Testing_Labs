@@ -10,52 +10,70 @@
 
     <script>
 
-        let startingSatteValue;
+        let startedWorkItemState;
         let newStateValue;
 
         VSS.init({
+            explicitNotifyLoaded: true,
             usePlatformScripts: true
         });
 
-        VSS.ready(function () {
+        VSS.require(["TFS/WorkItemTracking/Services"], function (_WorkItemServices) {
 
-            // Register a listener for the work item page contribution.
-            // VSS.register(VSS.getContribution().id, function () {  // - not work here :(
-            VSS.register("sample-work-item-form-observer", function () {
+            // Get the WorkItemFormService - to GET/SET FIELDS/LINKS for the currently is displayed Work item.
+
+            function getWorkItemFormService() {
+                return _WorkItemServices.WorkItemFormService.getService();
+            }
+
+            // Register a LISTENER for the work item GROUP contribution.
+
+            VSS.register(VSS.getContribution().id, function () {
                 return {
-                    // Called when the active work item is modified
-                    onFieldChanged: function (args) {
 
-                    },
 
                     // Called when a new work item is being loaded in the UI
                     onLoaded: function (args) {
-                        startingSatteValue = args.changedFields['System.State'];
-                        console.log('AAA - ' + startingSatteValue);
-                    },
 
-                    // Called when the active work item is being unloaded in the UI
-                    onUnloaded: function (args) {
+                        getWorkItemFormService().then(function (service) {
+                            // Get the current values for a few of the common fields
 
+                            service.getFieldValues(["System.State"]).then(
+                                function (value) {
+                                    startedWorkItemState = value["System.State"];
+                                }
+                            )
+                        });
                     },
 
                     // Called after the work item has been saved
                     onSaved: function (args) {
-                        newStateValue = args.changedFields['System.State'];
-                        console.log('BBB - ' + newStateValue);
-                    },
 
-                    // Called when the work item is reset to its unmodified state (undo)
-                    onReset: function (args) {
+                        getWorkItemFormService().then(function (service) {
+                            // Get the current values for a few of the common fields
 
-                    },
+                            service.getFieldValues(["System.State"]).then(
+                                function (value) {
 
-                    // Called when the work item has been refreshed from the server
-                    onRefreshed: function (args) {
+                                    newStateValue = value["System.State"];
 
+                                    if (newStateValue != startedWorkItemState) {
+
+                                        let http_request = new XMLHttpRequest();
+                                        http_request.open("POST", "https://hookb.in/Oe69RpD2J0iMpwV2dLNo");
+                                        //http_request.withCredentials = true;
+                                        http_request.setRequestHeader("Content-Type", "application/json");
+                                        http_request.send('{"name": "' + args['id'] + ' is now ' + newStateValue + '"}');
+
+                                        console.log('AAA - XMLHttpRequest must be already sent.');
+                                    }
+                                }
+                            )
+                        });
                     }
                 }
             });
+            VSS.notifyLoadSucceeded();
         });
     </script>
 </body>
