@@ -18,10 +18,10 @@
             usePlatformScripts: true
         });
 
-        // Register a listener for the menu item contribution
+        // Register a listener for WORK-ITEM-MENU-FUNC :
         VSS.register("sample-work-item-menu-func", function (context) {
             return {
-                // Called when the menu item is clicked.
+                // Menu CLICK handled :
                 execute: function (actionContext) {
 
                     window.alert("Total fields changed: " + changedFieldCount[actionContext.workItemId]);
