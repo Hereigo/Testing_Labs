@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+
+    <script>
+
+        let startingSatteValue;
+        let newStateValue;
+
+        VSS.init({
+            usePlatformScripts: true
+        });
+
+        VSS.ready(function () {
+
+            // Register a listener for the work item page contribution.
+            // VSS.register(VSS.getContribution().id, function () {  // - not work here :(
+            VSS.register("sample-work-item-form-observer", function () {
+                return {
+                    // Called when the active work item is modified
+                    onFieldChanged: function (args) {
+
+                    },
+
+                    // Called when a new work item is being loaded in the UI
+                    onLoaded: function (args) {
+                        startingSatteValue = args.changedFields['System.State'];
+                        console.log('AAA - ' + startingSatteValue);
+                    },
+
+                    // Called when the active work item is being unloaded in the UI
+                    onUnloaded: function (args) {
+
+                    },
+
+                    // Called after the work item has been saved
+                    onSaved: function (args) {
+                        newStateValue = args.changedFields['System.State'];
+                        console.log('BBB - ' + newStateValue);
+                    },
+
+                    // Called when the work item is reset to its unmodified state (undo)
+                    onReset: function (args) {
+
+                    },
+
+                    // Called when the work item has been refreshed from the server
+                    onRefreshed: function (args) {
+
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

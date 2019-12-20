@@ -11,6 +11,8 @@
 
     <script>
 
+        let startedWorkItemState;
+
         VSS.init({
             explicitNotifyLoaded: true,
             usePlatformScripts: true
@@ -41,7 +43,7 @@
                             http_request.setRequestHeader("Content-Type", "application/json");
                             http_request.send('{"name": "' + args['id'] + '" is now "' + newStateValue + '"}');
 
-                            console.log('001 - XMLHttpRequest must be already sent.');
+                            console.log('002 - XMLHttpRequest must be already sent.');
                         }
                     },
 
@@ -50,6 +52,17 @@
 
                         getWorkItemFormService().then(function (service) {
                             // Get the current values for a few of the common fields
+
+                            service.getFieldValues(["System.State"]).then(
+                                function (value) {
+
+                                    startedWorkItemState = value;
+
+                                    console.log("AAAAA - " + startedWorkItemState);
+                                }
+                            )
+
+
                             service.getFieldValues(["System.Id", "System.Title", "System.State", "System.CreatedDate"]).then(
                                 function (value) {
                                     $(".events").append($("<div/>").text("onLoaded - " + JSON.stringify(value)));

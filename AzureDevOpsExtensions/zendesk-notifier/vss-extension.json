@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1.0,
     "id": "zendesk-notifier",
-    "version": "0.0.1",
+    "version": "0.0.5",
     "name": "Zendesk Notifier",
     "description": "Explore how to extend the work item form with new sections, actions, and more.",
     "public": false,
@@ -31,7 +31,7 @@
             "addressable": true
         },
         {
-            "path": "index.html",
+            "path": "observer.html",
             "addressable": true
         },
         {
@@ -41,16 +41,14 @@
     ],
     "contributions": [
         {
-            "id": "sample-work-item-form-group",
-            "type": "ms.vss-work-web.work-item-form-group",
-            "description": "Custom work item form group",
+            "id": "sample-work-item-form-observer",
+            "type": "ms.vss-work-web.work-item-notifications",
+            "description": "Gets events about the current work item form.",
             "targets": [
                 "ms.vss-work-web.work-item-form"
             ],
             "properties": {
-                "name": "My Group",
-                "uri": "index.html",
-                "height": 600
+                "uri": "observer.html"
             }
         }
     ]
