@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Work item form group sample</title>
 </head>
 
 <body style="overflow:auto;">
@@ -11,10 +10,12 @@
     <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
 
     <script>
+
         VSS.init({
             explicitNotifyLoaded: true,
             usePlatformScripts: true
         });
+
         VSS.require(["TFS/WorkItemTracking/Services"], function (_WorkItemServices) {
 
             // Get the WorkItemFormService - to GET/SET FIELDS/LINKS for the currently is displayed Work item.
@@ -30,7 +31,18 @@
                     // Called when the active work item is modified
                     onFieldChanged: function (args) {
 
-                        $(".events").append($("<div/>").text("onFieldChanged - " + JSON.stringify(args)));
+                        var newStateValue = args.changedFields['System.State'];
+
+                        if (typeof (newStateValue) != 'undefined' && newStateValue != null) {
+
+                            let http_request = new XMLHttpRequest();
+                            http_request.open("POST", "https://hookb.in/Oe69RpD2J0iMpwV2dLNo");
+                            //http_request.withCredentials = true;
+                            http_request.setRequestHeader("Content-Type", "application/json");
+                            http_request.send('{"name": "' + args['id'] + '" is now "' + newStateValue + '"}');
+
+                            console.log('001 - XMLHttpRequest must be already sent.');
+                        }
                     },
 
                     // Called when a new work item is being loaded in the UI

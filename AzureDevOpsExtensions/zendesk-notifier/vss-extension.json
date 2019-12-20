@@ -41,14 +41,16 @@
     ],
     "contributions": [
         {
-            "id": "sample-work-item-form-observer-2",
-            "type": "ms.vss-work-web.work-item-notifications",
-            "description": "Gets events about the current work item form for the 'Try Me!' toolbar button",
+            "id": "sample-work-item-form-group",
+            "type": "ms.vss-work-web.work-item-form-group",
+            "description": "Custom work item form group",
             "targets": [
                 "ms.vss-work-web.work-item-form"
             ],
             "properties": {
-                "uri": "index.html"
+                "name": "My Group",
+                "uri": "index.html",
+                "height": 600
             }
         }
     ]
