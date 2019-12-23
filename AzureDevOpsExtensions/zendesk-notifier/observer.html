@@ -63,8 +63,8 @@
                                     stateAfter = value["System.State"];
                                     linkCountAfter = value["System.RelatedLinkCount"];
 
-                                    updatesComment += (stateAfter == stateBefore ? "" : `State is updated to ${stateAfter}`);
-                                    updatesComment += (linkCountAfter == linkCountBefore ? "" : `RelatedLinkCount incremented till ${linkCountAfter}`);
+                                    updatesComment += (stateAfter == stateBefore ? "" : `\n - State is updated to ${stateAfter}`);
+                                    updatesComment += (linkCountAfter == linkCountBefore ? "" : `\n - RelatedLinkCount incremented till ${linkCountAfter}`);
 
                                     // We have some updates => should be sent to ZD.
                                     if (updatesComment != "") {
@@ -104,6 +104,8 @@
                                         }
 
                                         http_request.send(json);
+
+                                        updatesComment = "";
 
                                         console.log('AAA - XMLHttpRequest must be already sent.');
                                     }
