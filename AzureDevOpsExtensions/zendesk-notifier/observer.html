@@ -53,6 +53,7 @@
                             // Get the current values for a few of the common fields
 
                             service.getFieldValues(["System.State"]).then(
+
                                 function (value) {
 
                                     newStateValue = value["System.State"];
@@ -60,10 +61,36 @@
                                     if (newStateValue != startedWorkItemState) {
 
                                         let http_request = new XMLHttpRequest();
-                                        http_request.open("POST", "https://hookb.in/JKQR6XJpxViwjyQNlWNx");
-                                        //http_request.withCredentials = true;
-                                        http_request.setRequestHeader("Content-Type", "application/json");
-                                        http_request.send('{"name": "' + args['id'] + ' is now ' + newStateValue + '"}');
+
+                                        let _WARNING_WARNING_ = "";
+
+                                        let commentData = {
+                                            ticket: {
+                                                comment: {
+                                                    author_id: 368907442298,
+                                                    body: "One another private comment from azurus :)",
+                                                    public: false
+                                                }
+                                            }
+                                        };
+
+                                        let json = JSON.stringify(commentData);
+
+                                        // http_request.open("POST", "https://hookb.in/JKQR6XJpxViwjyQNlWNx");
+                                        // http_request.send('{"name": "' + args['id'] + ' is now ' + newStateValue + '"}');
+
+                                        http_request.open("PUT", "https://and.zendesk.com/api/v2/tickets/3.json", true); // var TICKET_ID !
+
+                                        http_request.setRequestHeader("Content-type", "application/json;charset=utf-8");
+                                        http_request.setRequestHeader("Authorization", "Bearer " + _WARNING_WARNING_);
+                                        http_request.withCredentials = true; // ???
+
+                                        http_request.onload = function () {
+                                            console.log(http_request.responseText);
+                                            console.log(http_request.status);
+                                        }
+
+                                        http_request.send(json);
 
                                         console.log('AAA - XMLHttpRequest must be already sent.');
                                     }
