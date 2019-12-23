@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1.0,
     "id": "zendesk-notifier",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "name": "Zendesk Notifier",
     "description": "Explore how to extend the work item form with new sections, actions, and more.",
     "public": false,

@@ -10,8 +10,11 @@
 
     <script>
 
-        let startedWorkItemState;
-        let newStateValue;
+        let linkCountAfter;
+        let linkCountBefore;
+        let stateAfter;
+        let stateBefore;
+        let updatesComment = "";
 
         VSS.init({
             explicitNotifyLoaded: true,
@@ -38,9 +41,10 @@
                         getWorkItemFormService().then(function (service) {
                             // Get the current values for a few of the common fields
 
-                            service.getFieldValues(["System.State"]).then(
+                            service.getFieldValues(["System.State", "System.RelatedLinkCount"]).then(
                                 function (value) {
-                                    startedWorkItemState = value["System.State"];
+                                    stateBefore = value["System.State"];
+                                    linkCountBefore = value["System.RelatedLinkCount"];
                                 }
                             )
                         });
@@ -52,23 +56,28 @@
                         getWorkItemFormService().then(function (service) {
                             // Get the current values for a few of the common fields
 
-                            service.getFieldValues(["System.State"]).then(
+                            service.getFieldValues(["System.State", "System.RelatedLinkCount"]).then(
 
                                 function (value) {
 
-                                    newStateValue = value["System.State"];
+                                    stateAfter = value["System.State"];
+                                    linkCountAfter = value["System.RelatedLinkCount"];
 
-                                    if (newStateValue != startedWorkItemState) {
+                                    updatesComment += (stateAfter == stateBefore ? "" : `State is updated to ${stateAfter}`);
+                                    updatesComment += (linkCountAfter == linkCountBefore ? "" : `RelatedLinkCount incremented till ${linkCountAfter}`);
+
+                                    // We have some updates => should be sent to ZD.
+                                    if (updatesComment != "") {
 
                                         let http_request = new XMLHttpRequest();
 
-                                        let _WARNING_WARNING_ = "";
+                                        let _WARNING_WARNING_ = "_WARNING_WARNING_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 
                                         let commentData = {
                                             ticket: {
                                                 comment: {
                                                     author_id: 368907442298,
-                                                    body: "One another private comment from azurus of 23-12 15:50 :)",
+                                                    body: updatesComment,
                                                     public: false
                                                 }
                                             }

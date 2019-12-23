@@ -24,7 +24,7 @@ var test = {
         "System.State": "Active",
         "System.Reason": "Approved",
         "System.AssignedTo": "",
-        "Microsoft.VSTS.Common.ActivatedBy": "Plakhtiy Andrew <plakhtiy.andrew@hotmail.com>",
+        "Microsoft.VSTS.Common.ActivatedBy": "Andrew <andrew@hotmail.com>",
         "Microsoft.VSTS.Common.ActivatedDate": {
             "type": 1
         },
@@ -41,3 +41,9 @@ var test = {
 };
 
 console.log(test.changedFields['Microsoft.VSTS.Common.StateChangeDate']['value']);
+
+let aaa = "System.State";
+let bbb = "aaa";
+let ccc = "";
+ccc += (aaa == bbb ? "" : `New updated ${aaa}`);
+console.log(ccc);
