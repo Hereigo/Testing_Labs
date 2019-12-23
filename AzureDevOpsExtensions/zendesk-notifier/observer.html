@@ -68,7 +68,7 @@
                                             ticket: {
                                                 comment: {
                                                     author_id: 368907442298,
-                                                    body: "One another private comment from azurus :)",
+                                                    body: "One another private comment from azurus of 23-12 15:50 :)",
                                                     public: false
                                                 }
                                             }
@@ -82,12 +82,16 @@
                                         http_request.open("PUT", "https://and.zendesk.com/api/v2/tickets/3.json", true); // var TICKET_ID !
 
                                         http_request.setRequestHeader("Content-type", "application/json;charset=utf-8");
+
                                         http_request.setRequestHeader("Authorization", "Bearer " + _WARNING_WARNING_);
-                                        http_request.withCredentials = true; // ???
 
                                         http_request.onload = function () {
-                                            console.log(http_request.responseText);
-                                            console.log(http_request.status);
+                                            var response = JSON.parse(http_request.responseText);
+                                            if (http_request.readyState == 4 && http_request.status == "200") {
+                                                console.log(response);
+                                            } else {
+                                                console.error(response);
+                                            }
                                         }
 
                                         http_request.send(json);
