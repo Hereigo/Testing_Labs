@@ -13,7 +13,7 @@ namespace ZD_ADO_Connector
 
             GetSomeTickets();
 
-            SendComment();
+            // SendComment();
 
             // 2. CHECK  (BY ...) IF ADO NOT CONTAINS THEM YET
 
@@ -24,16 +24,14 @@ namespace ZD_ADO_Connector
         private void GetSomeTickets()
         {
             const long adoCustomFieldId = 360004572998;
-            const string adoTicketsTag = "azure";
 
-            // CREATED NOT MORE THAN ... ( X HOURS AGO )
-            // string requestByTime = $"{GIT_IGNORE.Variables.ZdApiRootPath}?page=0&query=type:ticket status:open created>{notEarlierThan.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
-            // Add 5 hours for the difference of Time Zones :
-            DateTime notEarlierThan = DateTime.Now.AddHours(-30);
+            const string adoTicketsTag = "azure";
 
             // "custom_fields": [{"id": 360004572998, ... (my own created ID)
             // search possible only by TAG !!!
-            string requestByTime = $"{GIT_IGNORE.Variables.ZdApiRootPath}/api/v2/search.json?page=0&query=type:ticket tags:{adoTicketsTag}";
+            string requestByTime = $"{GIT_IGNORE.Variables.ZdApiRootPath}/api/v2/search.json?page=0&query=type:ticket fieldvalue:ado3"; // tags:{adoTicketsTag}";
+
+            // string requestByTime = $"{GIT_IGNORE.Variables.ZdApiRootPath}?page=0&query=type:ticket status:open created>{notEarlierThan.ToString("yyyy-MM-ddTHH:mm:ssZ")}";
 
             Task<string> response = RequestSend(HttpMethod.Get, requestByTime);
 

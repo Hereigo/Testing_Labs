@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AzureDevOps to Zendesk Extension</title>
+</head>
+
+<body>
+    <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+
+    <script>
+
+        let linkCountAfter;
+        let linkCountBefore;
+        let urlRoot = "https://and.zendesk.com/api/v2";
+        let stateAfter;
+        let stateBefore;
+
+        VSS.init({
+            explicitNotifyLoaded: true,
+            usePlatformScripts: true
+        });
+
+        VSS.require(["TFS/WorkItemTracking/Services"], function (_WorkItemServices) {
+
+            // Get the WorkItemFormService - to GET/SET FIELDS/LINKS for the currently is displayed Work item.
+
+            function getWorkItemFormService() {
+                return _WorkItemServices.WorkItemFormService.getService();
+            }
+
+            // Register a LISTENER for the work item GROUP contribution.
+
+            VSS.register(VSS.getContribution().id, function () {
+                return {
+
+                    // Called when a new work item is being loaded in the UI
+                    onLoaded: function (args) {
+
+                        getWorkItemFormService().then(function (service) {
+                            // Get the current values for a few of the common fields
+
+                            service.getFieldValues(["System.State", "System.RelatedLinkCount"]).then(
+                                function (value) {
+                                    stateBefore = value["System.State"];
+                                    linkCountBefore = value["System.RelatedLinkCount"];
+                                }
+                            )
+                        });
+                    },
+
+                    // Called after the work item has been saved
+                    onSaved: function (args) {
+
+                        getWorkItemFormService().then(function (service) {
+
+                            // Get the current values for a few of the common fields
+
+                            service.getFieldValues(["System.Id", "System.State", "System.RelatedLinkCount"]).then(
+
+                                function (value) {
+
+                                    let workItemId = parseInt(value["System.Id"]);
+
+                                    if (isNaN(workItemId)) {
+                                        console.error("Error: parseInt(value['System.Id'] is NaN !!!");
+                                    } else {
+
+                                        stateAfter = value["System.State"];
+                                        linkCountAfter = value["System.RelatedLinkCount"];
+
+                                        let updatesComment = "";
+
+                                        updatesComment += (stateAfter == stateBefore ? "" : `\n - State is updated to ${stateAfter}`);
+                                        updatesComment += (linkCountAfter == linkCountBefore ? "" : `\n - RelatedLinkCount incremented till ${linkCountAfter}`);
+
+                                        // We have some updates => should be sent to ZD.
+                                        if (updatesComment != "") {
+
+                                            let _WARNING_WARNING_ = "_WARNING_WARNING_!!!!!!!!!!!!!!!!!!!!!!";
+
+                                            let http_request = new XMLHttpRequest();
+
+                                            http_request.open("GET", `${urlRoot}/search.json?page=0&query=type:ticket fieldvalue:ado${workItemId}`);
+
+
+
+
+                                            let zendeskTicketId = 3; // T E M P O R A R Y !!!!!!!!
+
+                                            // AFTER GETTING ZD TICKET ID :
+
+                                            let http_request2 = new XMLHttpRequest();
+
+                                            let commentData = {
+                                                ticket: {
+                                                    comment: {
+                                                        author_id: 368907442298,
+                                                        body: updatesComment,
+                                                        public: false
+                                                    }
+                                                }
+                                            };
+
+                                            let json = JSON.stringify(commentData);
+
+                                            http_request2.open("PUT", `${urlRoot}/tickets/${zendeskTicketId}.json`, true);
+
+                                            http_request2.setRequestHeader("Content-type", "application/json;charset=utf-8");
+
+                                            http_request2.setRequestHeader("Authorization", "Bearer " + _WARNING_WARNING_);
+
+                                            http_request2.onload = function () {
+                                                var response = JSON.parse(http_request2.responseText);
+                                                if (http_request2.readyState == 4 && http_request2.status == "200") {
+                                                    console.log(response);
+                                                } else {
+                                                    console.error(response);
+                                                }
+                                            }
+
+                                            http_request2.send(json);
+
+                                            console.log('XMLHttpRequest must be already sent.');
+                                        }
+                                    }
+                                }
+                            )
+                        });
+                    }
+                }
+            });
+            VSS.notifyLoadSucceeded();
+        });
+    </script>
+</body>
+
+</html>

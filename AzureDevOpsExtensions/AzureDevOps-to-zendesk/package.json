@@ -1,6 +1,6 @@
 {
-  "name": "zendesk-notifier",
-  "version": "0.0.5",
+  "name": "azuredevops-to-zendesk",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
