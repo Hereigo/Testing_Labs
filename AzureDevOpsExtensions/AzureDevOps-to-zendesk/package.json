@@ -1,13 +1,13 @@
 {
   "name": "azuredevops-to-zendesk",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "AndrewDotNetDev",
+  "author": "ELEKSRAPID",
   "license": "ISC",
   "dependencies": {
     "vss-web-extension-sdk": "^5.141.0"
