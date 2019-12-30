@@ -29,3 +29,5 @@ https://docs.microsoft.com/en-us/azure/devops/extend/get-started/node?view=azure
 13. Add `"baseUri": "https://localhost:44300"` into `vss-extension.json` - to DEBUG it locally.
 
 14. To DEBUG it locally - repeat steps 8-12.
+
+15. Additional zd-request : http_request.open("GET", `${zendeskSpace}/search.json?page=0&query=type:ticket fieldvalue:ado${workItemId}`);

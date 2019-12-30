@@ -11,15 +11,32 @@
 
     <script>
 
+        let abraKadaBra = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        let azureProjectItems = "https://aonanalytics.visualstudio.com/WorkflowStudio/_workitems/edit/";
         let linkCountOld;
         let stateOld;
         let zdTicketOld;
-        let azureProject = "https://plakhtiy-a.visualstudio.com/MyFirstProject/_workitems/edit/";
+        let zendeskSpace = "https://and.zendesk.com";
 
         VSS.init({
             explicitNotifyLoaded: true,
             usePlatformScripts: true
         });
+
+        
+        // Get data service
+        VSS.getService(VSS.ServiceIds.ExtensionData).then(function (dataService) {
+            // Set value in user scope of the VSS-starage
+            dataService.setValue("userScopedKey", 1234567, { scopeType: "User" }).then(function (value) {
+                console.log("User scoped key value is " + value);
+            });
+
+            // Get value in user scope of the VSS-starage
+            dataService.getValue("userScopedKey", { scopeType: "User" }).then(function (value) {
+                console.log("User scoped key value is " + value);
+            });
+        });
+
 
         VSS.require(["TFS/WorkItemTracking/Services"], function (_WorkItemServices) {
 
@@ -31,12 +48,7 @@
 
             function sendUpdatesToZendesk(zdIdToInform, comments) {
 
-                if (comments != "") { // We have no any updates to send to ZD.
-
-                    let zdRootUrl = "https://and.zendesk.com";
-                    let zdBearerData = "============================================";
-
-                    // http_request.open("GET", `${zdRootUrl}/search.json?page=0&query=type:ticket fieldvalue:ado${workItemId}`);
+                if (comments != "") { // We have some updates to send to ZD.
 
                     let http_request2 = new XMLHttpRequest();
 
@@ -52,11 +64,11 @@
 
                     let json = JSON.stringify(commentData);
 
-                    http_request2.open("PUT", `${zdRootUrl}/api/v2/tickets/${zdIdToInform}.json`, true);
+                    http_request2.open("PUT", `${zendeskSpace}/api/v2/tickets/${zdIdToInform}.json`, true);
 
                     http_request2.setRequestHeader("Content-type", "application/json;charset=utf-8");
 
-                    http_request2.setRequestHeader("Authorization", "Bearer " + zdBearerData);
+                    http_request2.setRequestHeader("Authorization", "Bearer " + abraKadaBra);
 
                     http_request2.onload = function () {
                         var response = JSON.parse(http_request2.responseText);
@@ -107,8 +119,9 @@
                                     let workitemID = value["System.Id"];
 
 
-                                    
+
                                     // T E M P O R A R Y   T E S T I N G !!!
+
 
 
                                     if (workitemID != 22177) {
@@ -120,21 +133,21 @@
                                         let updatesComment = "";
                                         let zdTicketNew = value["Custom.ZendeskTicket#"];
 
-                                        let azureWorkItemLink = `[Azure DevOps WorkItem ${workitemID}](${azureProject}${workitemID})`;
+                                        let azureWorkItemLink = `[Azure DevOps WorkItem ${workitemID}](${azureProjectItems}${workitemID})`;
 
                                         // Link to Zendesk has Changed !
                                         if (zdTicketOld != zdTicketNew) {
 
                                             if (zdTicketNew != 'undefined') {
                                                 updatesComment = azureWorkItemLink +
-                                                    ` is bound to this ticket! All work item important changes will be posted here.`;
+                                                    ` has been Bound to this ticket! All important this work item's changes will be posted here.`;
 
                                                 sendUpdatesToZendesk(zdTicketNew, updatesComment);
                                             }
 
                                             if (zdTicketOld != 'undefined') {
                                                 updatesComment = azureWorkItemLink +
-                                                    ` is unbound from this ticket! Any work item events will NOT be posted here any more.`;
+                                                    ` has been Unbound from this ticket! No any this work item's events will be posted here any more.`;
 
                                                 sendUpdatesToZendesk(zdTicketOld, updatesComment);
                                             }
