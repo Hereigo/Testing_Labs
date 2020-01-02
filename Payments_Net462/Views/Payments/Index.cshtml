@@ -2,7 +2,7 @@
 
 @{
 	ViewBag.Title = "Index";
-	string addButtonText = $"({ViewBag.mono2})";
+	// string addButtonText = $"({ViewBag.mono2})";
 }
 
 <table class="table">
@@ -21,7 +21,7 @@
 				<span id="sum-mono"> @ViewBag.mono </span>
 			</th>
 			<th class="text-left">
-				@Html.ActionLink(addButtonText, "Create", null, new { id = "add-button" })
+				@Html.ActionLink("(+)", "Create", null, new { id = "add-button" })
 			</th>
 		</tr>
 	</thead>

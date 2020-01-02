@@ -3,7 +3,8 @@ WHEN CatogoryId = 1 THEN 'CSH' WHEN CatogoryId = 2 THEN 'ALF' WHEN CatogoryId = 
 WHEN CatogoryId = 5 THEN 'WOK' WHEN CatogoryId = 6 THEN 'STU' WHEN CatogoryId = 7 THEN 'HOM' WHEN CatogoryId = 8 THEN 'KID' 
 WHEN CatogoryId = 9 THEN 'KIU' WHEN CatogoryId = 10 THEN 'QVN' WHEN CatogoryId = 11 THEN 'FOO' WHEN CatogoryId = 12 THEN 'COF' 
 WHEN CatogoryId = 13 THEN 'HLS' WHEN CatogoryId = 14 THEN 'CLO' WHEN CatogoryId = 15 THEN 'VIH' WHEN CatogoryId = 16 THEN 'ENJ' 
-WHEN CatogoryId = 17 THEN 'PEB' WHEN CatogoryId = 18 THEN 'VLG' WHEN CatogoryId = 19 THEN 'KSH' WHEN CatogoryId = 43 THEN 'BMO'
+WHEN CatogoryId = 17 THEN 'PEB' WHEN CatogoryId = 18 THEN 'VLG' WHEN CatogoryId = 19 THEN 'KSH' WHEN CatogoryId = 39 THEN 'KSH' 
+WHEN CatogoryId = 43 THEN 'BMO' WHEN CatogoryId = 44 THEN 'OLD' WHEN CatogoryId = 45 THEN 'RES'
 ELSE '---' END
 CatogoryId,Amount,Description,ID,PayDate FROM [Payments] WHERE PayDate >= '2018-10-01' ORDER BY PayDate DESC
 
