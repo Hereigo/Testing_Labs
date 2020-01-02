@@ -1,0 +1,39 @@
+{
+    "manifestVersion": 1,
+    "id": "sample-ui-test",
+    "publisher": "AndrewDotNetDev",
+    "version": "1.0.1",
+    "name": "Sample UI test Extension",
+    "description": "A Sample UI Azure DevOps extension",
+    "public": false,
+    "categories": ["Azure Repos"],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "contributions": [
+        {  
+            "id": "sample-work-item-form-observer",
+            "type": "ms.vss-work-web.work-item-notifications",
+            "description": "Gets events about the current work item form for the 'Try Me!' toolbar button",
+            "targets": [
+                "ms.vss-work-web.work-item-form"
+            ],
+            "properties": {
+                "uri": "simple-ui-control.html"
+            }
+        }
+     ],
+    "files": [
+        {
+            "path": "simple-ui-control.html",
+            "addressable": true
+        },
+        {
+            "path": "../node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        }
+    ]
+}

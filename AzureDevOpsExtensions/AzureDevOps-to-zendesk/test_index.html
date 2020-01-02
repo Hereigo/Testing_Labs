@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AzureDevOps to Zendesk Extension</title>
+    <style>
+        body {
+            background-color: rgb(0, 67, 117);
+            color: yellow;
+            margin: 10px;
+            font-family: "Segoe UI VSS (Regular)", "-apple-system", BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        input,
+        label {
+            display: block;
+        }
+
+        label {
+            margin-top: .5em;
+        }
+
+        .text-muted {
+            color: dodgerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+
+    <h3>Zendesk Notifyer Configuration :</h3>
+
+    <span class="text-muted">(leave fields empty to skip)</span>
+
+    <label>Azure Organization :</label>
+    <input id="azureOrg" name="azureOrg" type="text">
+
+    <label>Azure Project :</label>
+    <input id="azureProj" name="azureProj" type="text">
+
+    <label>Zendesk Organization ( https:// { ORGANIZATION } .zendesk.com ) :</label>
+    <input id="zdSpace" name="zdSpace" type="text">
+
+    <label>Zendesk Support User ID to write comments (like 123456789012) :</label>
+    <input id="zdUser" name="zdUser" type="text">
+
+    <label>Zendesk Bearer string to authorize (in Base64 like "062f798338a...") :</label>
+    <input id="zdBearer" name="zdBearer" type="text">
+    <br />
+    <input id="saveCfg" name="saveCfg" type="button" value="Save Configuration">
+
+    <div id="configOutput"></div>
+
+    <script type="text/javascript">
+
+
+
+        document.getElementById("saveCfg").addEventListener("click", function () {
+
+            let alfaStore = {};
+
+            let azureOrg = document.getElementById("azureOrg").value;
+            let azureProj = document.getElementById("azureProj").value;
+            let zdSpace = document.getElementById("zdSpace").value;
+            let zdBearer = document.getElementById("zdBearer").value;
+
+            if (azureOrg) alfaStore.azureOrg = azureOrg;
+            if (azureProj) alfaStore.azureProj = azureProj;
+            if (zdSpace) alfaStore.zdSpace = zdSpace;
+            if (zdBearer) alfaStore.zdBearer = zdBearer;
+
+            for (let property in alfaStore) {
+                console.log(alfaStore[property]);
+            }
+
+        });
+
+
+        (function () {
+            
+            setInterval(() => console.log('tick'), 2000);
+            
+        })();
+
+    </script>
+
+</body>
+
+</html>

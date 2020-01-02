@@ -11,32 +11,51 @@
 
     <script>
 
-        let abraKadaBra = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-        let azureProjectItems = "https://aonanalytics.visualstudio.com/WorkflowStudio/_workitems/edit/";
+        let azureProjectItems;
         let linkCountOld;
         let stateOld;
+        let zdBeerR;
+        let zendeskSpace;
         let zdTicketOld;
-        let zendeskSpace = "https://and.zendesk.com";
+        let zendeskUserId;
 
         VSS.init({
             explicitNotifyLoaded: true,
             usePlatformScripts: true
         });
 
-        
         // Get data service
         VSS.getService(VSS.ServiceIds.ExtensionData).then(function (dataService) {
-            // Set value in user scope of the VSS-starage
-            dataService.setValue("userScopedKey", 1234567, { scopeType: "User" }).then(function (value) {
-                console.log("User scoped key value is " + value);
+
+            // Get Data from Service to Connect and write Comments into Zendesk ticket :
+
+            dataService.getValue("azureOrg").then(function (value) {
+                let azureOrg = value;
+                console.log("azureOrg value is " + value);
+
+                dataService.getValue("azureProj").then(function (value) {
+                    azureProjectItems = `https://${azureOrg}.visualstudio.com/${value}/_workitems/edit/`;
+                    console.log(`FULL PATH : ` + azureProjectItems);
+                });
+
             });
 
-            // Get value in user scope of the VSS-starage
-            dataService.getValue("userScopedKey", { scopeType: "User" }).then(function (value) {
-                console.log("User scoped key value is " + value);
+            dataService.getValue("zdSpace").then(function (value) {
+                zendeskSpace = value;
+                console.log("zdSpace value is " + zendeskSpace);
             });
+
+            dataService.getValue("zdUser").then(function (value) {
+                zendeskUserId = value;
+                console.log("zdUser value is " + value);
+            });
+
+            dataService.getValue("zdBearer").then(function (value) {
+                zdBeerR = value;
+                console.log("zdBearer value is " + value);
+            });
+
         });
-
 
         VSS.require(["TFS/WorkItemTracking/Services"], function (_WorkItemServices) {
 
@@ -50,38 +69,53 @@
 
                 if (comments != "") { // We have some updates to send to ZD.
 
-                    let http_request2 = new XMLHttpRequest();
+                    setTimeout(() => console.log('TRY to send XMLHttpRequest....'), 1500);
 
-                    let commentData = {
-                        ticket: {
-                            comment: {
-                                author_id: 368907442298,
-                                body: comments,
-                                public: false
+                    if (azureProjectItems != "undefined" && zendeskSpace != "undefined" &&
+                        zendeskUserId != "undefined" && zdBeerR != "undefined") {
+
+                        // Send Request to Zendesk : 
+
+                        let zdFullPathRequest = `https://${zendeskSpace}.zendesk.com/api/v2/tickets/${zdIdToInform}.json`;
+
+                        console.log('TEST REQUEST - ' + zdFullPathRequest);
+
+                        let http_request = new XMLHttpRequest();
+
+                        let commentData = {
+                            ticket: {
+                                comment: {
+                                    author_id: zendeskUserId, // 369172912398,
+                                    body: comments,
+                                    public: false
+                                }
+                            }
+                        };
+
+                        let json = JSON.stringify(commentData);
+
+                        http_request.open("PUT", zdFullPathRequest, true);
+
+                        http_request.setRequestHeader("Content-type", "application/json;charset=utf-8");
+
+                        http_request.setRequestHeader("Authorization", "Bearer " + zdBeerR);
+
+                        http_request.onload = function () {
+                            var response = JSON.parse(http_request.responseText);
+                            if (http_request.readyState == 4 && http_request.status == "200") {
+                                console.log(response);
+                            } else {
+                                console.error(response);
                             }
                         }
-                    };
 
-                    let json = JSON.stringify(commentData);
+                        http_request.send(json);
 
-                    http_request2.open("PUT", `${zendeskSpace}/api/v2/tickets/${zdIdToInform}.json`, true);
+                        console.log('XMLHttpRequest must be already sent.');
 
-                    http_request2.setRequestHeader("Content-type", "application/json;charset=utf-8");
-
-                    http_request2.setRequestHeader("Authorization", "Bearer " + abraKadaBra);
-
-                    http_request2.onload = function () {
-                        var response = JSON.parse(http_request2.responseText);
-                        if (http_request2.readyState == 4 && http_request2.status == "200") {
-                            console.log(response);
-                        } else {
-                            console.error(response);
-                        }
+                    } else {
+                        console.log('XMLHttpRequest has NOT been sent.');
                     }
-
-                    http_request2.send(json);
-
-                    console.log('XMLHttpRequest must be already sent.');
                 }
             }
 

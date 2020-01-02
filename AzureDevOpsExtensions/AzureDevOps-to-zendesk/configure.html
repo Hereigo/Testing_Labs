@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AzureDevOps to Zendesk Extension</title>
+    <link rel="stylesheet" type="text/css" href="css/configure.css">
+</head>
+
+<body>
+    <script src="node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+
+    <h3>Zendesk Notifyer Configuration :</h3>
+
+    <span class="text-muted">(leave fields empty to skip)</span>
+
+    <label>Azure Organization :</label>
+    <input id="azureOrg" name="azureOrg" type="text">
+    
+    <label>Azure Project :</label>
+    <input id="azureProj" name="azureProj" type="text">
+    
+    <label>Zendesk Organization ( https:// { ORGANIZATION } .zendesk.com ) :</label>
+    <input id="zdSpace" name="zdSpace" type="text">
+        
+    <label>Zendesk Support User ID to write comments (like 123456789012) :</label>
+    <input id="zdUser" name="zdUser" type="text">
+
+    <label>Zendesk Bearer string to authorize (in Base64 like "062f798338a...") :</label>
+    <input id="zdBearer" name="zdBearer" type="text">
+    <br />
+    <input id="saveCfg" name="saveCfg" type="button" value="Save Configuration">
+
+    <div id="alfaOutput"></div>
+
+    <script type="text/javascript">
+
+        VSS.init();
+
+        VSS.ready(function () {
+            document.getElementById("saveCfg").addEventListener("click", function () {
+
+                VSS.getService(VSS.ServiceIds.ExtensionData).then(function (dataService) {
+
+                    let alfaOutput = document.getElementById("alfaOutput");
+                    let alfaStore = {};
+                    let azureOrg = document.getElementById("azureOrg").value;
+                    let azureProj = document.getElementById("azureProj").value;
+                    let zdBearer = document.getElementById("zdBearer").value;
+                    let zdSpace = document.getElementById("zdSpace").value;
+                    let zdUser = document.getElementById("zdUser").value;
+
+                    if (azureOrg) alfaStore.azureOrg = azureOrg;
+                    if (azureProj) alfaStore.azureProj = azureProj;
+                    if (zdBearer) alfaStore.zdBearer = zdBearer;
+                    if (zdSpace) alfaStore.zdSpace = zdSpace;
+                    if (zdUser) alfaStore.zdUser = zdUser;
+
+                    for (let property in alfaStore) {
+                        // Set value in user scope of the VSS-starage
+                        dataService.setValue(property, alfaStore[property]).then(function (value) {
+                            alfaOutput.innerHTML += "<br/> Updated value - " + value;
+                        });
+                    }
+                });
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

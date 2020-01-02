@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1.0,
     "id": "azuredevops-to-zendesk",
-    "version": "0.0.4",
+    "version": "0.1.0",
     "name": "AzureDevOps to Zendesk Extension",
     "description": "Explore how to extend the work item form with new sections, actions, and more.",
     "public": false,
@@ -35,6 +35,14 @@
             "addressable": true
         },
         {
+            "path": "configure.html",
+            "addressable": true
+        },
+        {
+            "path": "css/configure.css",
+            "addressable": true
+        },
+        {
             "path": "node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js",
             "addressable": true
         }
@@ -49,6 +57,17 @@
             ],
             "properties": {
                 "uri": "observer.html"
+            }
+        },
+        {
+            "id": "configure",
+            "type": "ms.vss-web.hub",
+            "targets": [
+                "ms.vss-code-web.code-hub-group"
+            ],
+            "properties": {
+                "name": "Testing [Don't touch!]",
+                "uri": "configure.html"
             }
         }
     ]
