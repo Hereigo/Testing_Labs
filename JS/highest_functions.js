@@ -25,6 +25,26 @@ usernames = usersArr.map(getUserName);
 
 console.log(usernames); // ['Alex', 'Max', 'Hanna', 'Felix' 
 
+// === Using MAP (2) : ===
+
+[1, 2, 3, 4, 5].map(console.log);
+
+// The above is equivalent to :
+[1, 2, 3, 4, 5].map(
+    (val, index, array) => console.log(val, index, array)
+);
+
+// 1 0 [ 1, 2, 3, 4, 5 ]
+// 2 1 [ 1, 2, 3, 4, 5 ]
+// 3 2 [ 1, 2, 3, 4, 5 ]
+// 4 3 [ 1, 2, 3, 4, 5 ]
+// 5 4 [ 1, 2, 3, 4, 5 ]
+// 1 0 [ 1, 2, 3, 4, 5 ]
+// 2 1 [ 1, 2, 3, 4, 5 ]
+// 3 2 [ 1, 2, 3, 4, 5 ]
+// 4 3 [ 1, 2, 3, 4, 5 ]
+// 5 4 [ 1, 2, 3, 4, 5 ]
+
 // === Using REDUCE (Accumulate) : ===
 
 totalUsersAge = usersArr.reduce((totalAge, currentVal) => currentVal.age + totalAge, 0);
