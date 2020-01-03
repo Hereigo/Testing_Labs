@@ -1,50 +1,52 @@
 ﻿@model IEnumerable<Payments_Net462.Models.Payment>
 
 @{
-	ViewBag.Title = "Index";
-	// string addButtonText = $"({ViewBag.mono2})";
+    ViewBag.Title = "Index";
 }
 
-<table class="table">
-	<thead>
-		<tr>
-			<th>
-				@ViewBag.alfa
-			</th>
-			<th>
-				<span id="sum-prv"> @ViewBag.prima </span>
-			</th>
-			<th>
-				<span id="sum-curr"> @ViewBag.rest </span>
-			</th>
-			<th>
-				<span id="sum-mono"> @ViewBag.mono </span>
-			</th>
-			<th class="text-left">
-				@Html.ActionLink("(+)", "Create", null, new { id = "add-button" })
-			</th>
-		</tr>
-	</thead>
+<div class="my-table">
 
-	@foreach (var item in Model)
-	{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.PayDate)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Category.Name)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Amount)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Description)
-			</td>
-			<td>
-				@Html.ActionLink("Edit", "Edit", new { id = item.ID })
-			</td>
-		</tr>
-	}
+    <div class="row table-th">
 
-</table>
+        <div class="col-2">
+            @ViewBag.alfa
+        </div>
+        <div class="col-2">
+            @ViewBag.prima
+        </div>
+        <div class="col-2">
+            @ViewBag.rest
+        </div>
+        <div class="col-2">
+            @ViewBag.mono
+        </div>
+        <div class="col-2">
+        </div>
+        <div class="col-2">
+            @Html.ActionLink("(+)", "Create", null, new { id = "add-button" })
+        </div>
+    </div>
+
+
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-1">
+                @Html.DisplayFor(modelItem => item.PayDate)
+            </div>
+            <div class="col-1 categor">
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </div>
+            <div class="col-2 text-right">
+                @Html.DisplayFor(modelItem => item.Amount)
+            </div>
+            <div class="col-6 text-left">
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
+            <div class="col-1">
+                @Html.ActionLink("©", "Edit", new { id = item.ID })
+            </div>
+        </div>
+    }
+
+</div>

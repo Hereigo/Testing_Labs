@@ -1,9 +1,6 @@
 namespace Payments_Net462.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Payments_Net462.Models.PaymentsContext>
     {
@@ -13,7 +10,7 @@ namespace Payments_Net462.Migrations
             ContextKey = "Payments_Net462.Models.PaymentsContext";
         }
 
-        protected override void Seed(Payments_Net462.Models.PaymentsContext context)
+        protected override void Seed(Models.PaymentsContext context)
         {
             //  This method will be called after migrating to the latest version.
 

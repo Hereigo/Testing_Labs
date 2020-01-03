@@ -10,17 +10,21 @@
 <body style="padding-top:0">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-				</button>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                </button>
 
-				<form id="days-selector" action="@Url.Action("Index", "Payments")">
-					<input type="number" id="id" name="id" value="5" />
-					<input type="submit" value="query" />
-				</form>
+                <form id="by-days" action="@Url.Action("Index", "Payments")">
+                    <input type="hidden" id="id" name="id" />
+                    <input type="button" value=" 1 " onclick="document.forms['by-days'].id.value = 1; submit()" />
+                    <input type="button" value=" 3 " onclick="document.forms['by-days'].id.value = 3; submit()" />
+                    <input type="button" value=" 5 " onclick="document.forms['by-days'].id.value = 5; submit()" />
+                    <input type="button" value=" 7 " onclick="document.forms['by-days'].id.value = 7; submit()" />
+                    <input type="button" value=" 14 " onclick="document.forms['by-days'].id.value = 14; submit()" />
+                </form>
 
-			</div>
+            </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -32,15 +36,15 @@
             </div>
         </div>
     </div>
-	<div class="container body-content">
+    <div style="margin:0 1em">
 
-		@RenderBody()
+        @RenderBody()
 
-		<hr />
-		<footer>
-			<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-		</footer>
-	</div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

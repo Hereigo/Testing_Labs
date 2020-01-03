@@ -40,23 +40,24 @@ namespace Payments_Net462.Controllers
         // GET: Payments
         public ActionResult Index(int id = 2)
         {
-#if DEBUG
-            //id = 300;
-            const int categiryBMO = 20;  // local db
-#else
-			const int categiryBMO = 43;  // remote db
-#endif
             DateTime minDate = DateTime.Now.AddDays((-1) * id);
 
             IQueryable<Payment> payments = db.Payments.Include(p => p.Category);
-
+#if DEBUG
+            ViewBag.alfa = 10000;
+            ViewBag.prima = 2000;
+            ViewBag.mono = 20888;
+            ViewBag.rest = 132456;
+#else
             // TODO:
             // make me stored in db !!!
-            // MAKE ME STORED IN DB !!!
             // make me stored in db !!!
+            // MAKE ME STORED IN DB !!!
 
             ViewBag.alfa = payments.Where(p => p.CatogoryId == 2).Sum(p => p.Amount);
             ViewBag.prima = payments.Where(p => p.CatogoryId == 3).Sum(p => p.Amount);
+
+            const int categiryBMO = 43;  // in the remote db only!
 
             if (payments.Any(p => p.CatogoryId == categiryBMO))
             {
@@ -67,7 +68,7 @@ namespace Payments_Net462.Controllers
             int nonCsh = payments.Where(p => p.CatogoryId != 1).Sum(p => p.Amount);
 
             ViewBag.rest = (csh - nonCsh);
-
+#endif
             return View(payments.Where(p => p.PayDate > minDate).OrderByDescending(p => p.PayDate).ToList());
         }
 
