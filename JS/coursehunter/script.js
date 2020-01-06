@@ -18,3 +18,10 @@ document.querySelector(".a-parent span").innerHTML = "TEXT CHANGED!";
 
 // 5. - If TAG is not RAIRED - we use its ATTRIBUTES !
 document.querySelector("img").src = "https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_linux-48.png";
+
+let checkedRadio = document.querySelector('.radios[checked]');
+console.log(checkedRadio.id);
+
+function radioChanged(elem){
+    console.log(elem.id);
+}

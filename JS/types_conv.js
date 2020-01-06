@@ -2,12 +2,12 @@ import '../styles/index.scss';
 
 console.log(' = = =  TYPEOF & COERCION OF TYPES CONVERTION : = = =  ');
 
-console.log(typeof(null)); // object
+console.log(typeof(null));      // object
 console.log(typeof(undefined)); // undefined
-console.log(typeof(Error)); // function
-console.log(typeof(console)); // object
-console.log(typeof(Infinity)); // number
-console.log(typeof(NaN)); // number
+console.log(typeof(Error));     // function
+console.log(typeof(console));   // object
+console.log(typeof(Infinity));  // number
+console.log(typeof(NaN));       // number
 
 console.log(Number.parseFloat('55.99ABC')); // 55.99
 console.log('55.99ABC'.toString()); // 55.99ABC
