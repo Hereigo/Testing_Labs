@@ -9,6 +9,11 @@ namespace Angular_Net462
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/site.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/AwesomeAngularMVCApp")
+                .IncludeDirectory("~/Scripts/Controllers", "*.js")
+                .IncludeDirectory("~/Scripts/Factories", "*.js")
+                .Include("~/Scripts/AwesomeAngularMVCApp.js"));
+
             BundleTable.EnableOptimizations = true;
         }
     }
