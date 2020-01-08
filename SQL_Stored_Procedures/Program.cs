@@ -2,15 +2,17 @@
 
 namespace SQL_Stored_Procedures
 {
-    class Program
+    internal static class Program
     {
-        string connStr = "Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;";
-
-        static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Hello World!");
+            const bool dropDatabaseBefore = true;
+
+            const string connStr = "Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;";
+
+            Initialisation.CreateAndFillDb(dropDatabaseBefore, connStr);
+
+            Console.WriteLine("Done.");
         }
     }
 }
-// connectionString="Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=PaymentsContext-2019-05-07; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|PaymentsContext-2019-05-07.mdf"
-// providerName="System.Data.SqlClient"
