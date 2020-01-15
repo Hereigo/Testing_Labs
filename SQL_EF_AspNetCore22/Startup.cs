@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +38,9 @@ namespace SQL_EF_AspNetCore22
 
             app.Run(async (context) =>
             {
-                // Call spGetAllEmployees !!!
+
+                Task<List<Employee>> rezult = Sql.CallspGetAllEmployees().ToListAsync();
+
 
                 await context.Response.WriteAsync("Hello World!");
 

@@ -17,7 +17,7 @@ namespace SQL_Stored_Procedures
 
             ExecuteNonQuery.CommandFromFile(connStr, db, "spGetProductDesc.sql");
 
-            CallStoredProcedure.CommandFromFile(connStr, "GetProductDesc");
+            CallStoredProcedure.CallByName(connStr, "GetProductDesc");
 
             Console.WriteLine("Done.");
         }

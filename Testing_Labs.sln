@@ -141,6 +141,24 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Bootstrap", "VSCode_Html_Pr
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "1643"
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1643"
+		Debug.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\Bootstrap\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1643\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1643"
+		Release.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\Bootstrap\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1643\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1643"
 		SlnRelativePath = "VSCode_Html_Projects\Bootstrap\"
 	EndProjectSection
 EndProject
@@ -270,10 +288,46 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Flexbox_n_Grid", "VSCode_Ht
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "1646"
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1646"
+		Debug.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\Flexbox_n_Grid\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1646\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1646"
+		Release.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\Flexbox_n_Grid\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1646\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1646"
 		SlnRelativePath = "VSCode_Html_Projects\Flexbox_n_Grid\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Lazy-js", "VSCode_Html_Projects\Lazy-js\", "{BAD826B1-DF3D-44C9-95F9-BAAF66B00978}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1653"
+		Debug.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\Lazy-js\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1653\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1653"
+		Release.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\Lazy-js\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1653\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1653"
+	EndProjectSection
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_1653"
@@ -542,6 +596,24 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Learn_CSS", "VSCode_Html_Pr
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "18593"
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_18593"
+		Debug.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\Learn_CSS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_18593\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_18593"
+		Release.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\Learn_CSS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_18593\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "18593"
 		SlnRelativePath = "VSCode_Html_Projects\Learn_CSS\"
 	EndProjectSection
 EndProject
@@ -671,10 +743,46 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DataTable", "VSCode_Html_Pr
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "28078"
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_28078"
+		Debug.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\DataTable\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28078\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_28078"
+		Release.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\DataTable\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28078\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "28078"
 		SlnRelativePath = "VSCode_Html_Projects\DataTable\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JS_Adv_ITVDN", "VSCode_Html_Projects\JS_Adv_ITVDN\", "{7930FCE4-74FF-47E6-BBE3-462E89EA0C4C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_18606"
+		Debug.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\JS_Adv_ITVDN\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_18606\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_18606"
+		Release.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\JS_Adv_ITVDN\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_18606\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "18606"
+	EndProjectSection
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_18606"
@@ -931,6 +1039,24 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DOM_RawJS", "VSCode_Html_Pr
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "23091"
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_23091"
+		Debug.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\DOM_RawJS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_23091\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_23091"
+		Release.AspNetCompiler.PhysicalPath = "VSCode_Html_Projects\DOM_RawJS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_23091\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "23091"
 		SlnRelativePath = "VSCode_Html_Projects\DOM_RawJS\"
 	EndProjectSection
 EndProject
@@ -972,7 +1098,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular_Net462", "Angular_N
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQL_Stored_Procedures", "SQL_Stored_Procedures\SQL_Stored_Procedures.csproj", "{CB600EAB-6D05-41F0-8B50-065B1295776F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL_EF_AspNetCore22", "SQL_EF_AspNetCore22\SQL_EF_AspNetCore22.csproj", "{EBB68236-077A-43DA-AA49-1101FD542E2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQL_EF_AspNetCore22", "SQL_EF_AspNetCore22\SQL_EF_AspNetCore22.csproj", "{EBB68236-077A-43DA-AA49-1101FD542E2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL_EF_Net462", "SQL_EF_Net462\SQL_EF_Net462.csproj", "{C018F49C-8C46-48D7-AB51-E3E29B8B6BBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac_Net462", "Autofac_Net462\Autofac_Net462.csproj", "{0232C158-3B76-414B-AED2-7AF8FA60A5FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1140,6 +1270,14 @@ Global
 		{EBB68236-077A-43DA-AA49-1101FD542E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBB68236-077A-43DA-AA49-1101FD542E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBB68236-077A-43DA-AA49-1101FD542E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C018F49C-8C46-48D7-AB51-E3E29B8B6BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C018F49C-8C46-48D7-AB51-E3E29B8B6BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C018F49C-8C46-48D7-AB51-E3E29B8B6BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C018F49C-8C46-48D7-AB51-E3E29B8B6BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0232C158-3B76-414B-AED2-7AF8FA60A5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0232C158-3B76-414B-AED2-7AF8FA60A5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0232C158-3B76-414B-AED2-7AF8FA60A5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0232C158-3B76-414B-AED2-7AF8FA60A5FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

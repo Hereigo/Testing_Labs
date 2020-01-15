@@ -5,12 +5,13 @@ namespace SQL_EF_AspNetCore22
 {
     public class EmployeeContext : DbContext
     {
+        public EmployeeContext() { }
+
         public EmployeeContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Employee> Employees { get; set; }
 
-        // 2. Second Migration "OnModelCreating()" after 1s Initial Migration :
-
+        // SECOND Migration after 1st "Initial Migration" :
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>().HasData(new Employee

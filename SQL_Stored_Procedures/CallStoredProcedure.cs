@@ -7,7 +7,7 @@ namespace SQL_Stored_Procedures
     internal static class CallStoredProcedure
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "<Pending>")]
-        public static void CommandFromFile(string connStr, string procedureName)
+        public static void CallByName(string connStr, string procedureName)
         {
             Console.WriteLine($"Ready to call SP '{procedureName}'. Continue? ...");
             Console.ReadKey();
