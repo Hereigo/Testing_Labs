@@ -34,6 +34,10 @@ thead {
     text-align: center;
 }
 
+.row:hover {
+    background-color:#caeefa;
+}
+
 .table-th div {
     background-color: aliceblue;
     font-weight: 700;
