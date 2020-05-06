@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("LookingForReferences")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ELEKS")]
+[assembly: AssemblyCompany("Hereigo")]
 [assembly: AssemblyProduct("LookingForReferences")]
-[assembly: AssemblyCopyright("Copyright © ELEKS 2019")]
+[assembly: AssemblyCopyright("Copyright © Hereigo 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

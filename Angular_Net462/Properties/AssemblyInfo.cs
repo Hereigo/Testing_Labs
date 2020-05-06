@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Angular_Net462")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ELEKS")]
+[assembly: AssemblyCompany("Hereigo")]
 [assembly: AssemblyProduct("Angular_Net462")]
-[assembly: AssemblyCopyright("Copyright © ELEKS 2020")]
+[assembly: AssemblyCopyright("Copyright © Hereigo 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
